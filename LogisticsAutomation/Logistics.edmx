@@ -1,0 +1,840 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище LogisticsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Carrying" Type="int" />
+          <Property Name="Capacity" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="CargoTypeID" Type="int" Nullable="false" />
+          <Property Name="Number" Type="int" />
+          <Property Name="SupplierID" Type="int" Nullable="false" />
+          <Property Name="UnitMeasurement" Type="varchar" MaxLength="20" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <EntityType Name="CargoTransportation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CargoID" Type="int" Nullable="false" />
+          <Property Name="TransportationID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CargoType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="50" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="DrivingCategory" Type="varchar" MaxLength="5" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Comments" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" />
+          <Property Name="Address" Type="varchar" MaxLength="100" />
+          <Property Name="ContactPerson" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="PerKM" Type="int" />
+          <Property Name="PerHour" Type="int" />
+          <Property Name="PerKG" Type="int" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandID" Type="int" Nullable="false" />
+          <Property Name="DateEntry" Type="date" />
+          <Property Name="DriverID" Type="int" Nullable="false" />
+          <Property Name="StateNumber" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Transportation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateOrder" Type="date" />
+          <Property Name="TransportID" Type="int" Nullable="false" />
+          <Property Name="PlaceDelivery" Type="varchar" MaxLength="100" />
+          <Property Name="ClientID" Type="int" Nullable="false" />
+          <Property Name="TariffID" Type="int" Nullable="false" />
+          <Property Name="Kilometrage" Type="int" />
+          <Property Name="TravelTime" Type="int" />
+          <Property Name="AdditionalData" Type="varchar" MaxLength="200" />
+          <Property Name="FuelQuantityDeparture" Type="int" />
+          <Property Name="FuelQuantityComing" Type="int" />
+          <Property Name="SpeedometerValueDeparture" Type="int" />
+          <Property Name="SpeedometerValueComing" Type="int" />
+          <Property Name="DateArrival" Type="date" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cargo_CargoType">
+          <End Role="CargoType" Type="Self.CargoType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="CargoTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cargo_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CargoTransportation_Cargo">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CargoTransportation">
+              <PropertyRef Name="CargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CargoTransportation_Transportation">
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transportation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CargoTransportation">
+              <PropertyRef Name="TransportationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Tariff">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TariffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Transport">
+          <End Role="Transport" Type="Self.Transport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TransportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище LogisticsDBModelContainer">
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CargoTransportation" EntityType="Self.CargoTransportation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CargoType" EntityType="Self.CargoType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driver" EntityType="Self.Driver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tariff" EntityType="Self.Tariff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transport" EntityType="Self.Transport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transportation" EntityType="Self.Transportation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cargo_CargoType" Association="Self.FK_Cargo_CargoType">
+            <End Role="CargoType" EntitySet="CargoType" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cargo_Supplier" Association="Self.FK_Cargo_Supplier">
+            <End Role="Supplier" EntitySet="Supplier" />
+            <End Role="Cargo" EntitySet="Cargo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CargoTransportation_Cargo" Association="Self.FK_CargoTransportation_Cargo">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="CargoTransportation" EntitySet="CargoTransportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CargoTransportation_Transportation" Association="Self.FK_CargoTransportation_Transportation">
+            <End Role="Transportation" EntitySet="Transportation" />
+            <End Role="CargoTransportation" EntitySet="CargoTransportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Brand" Association="Self.FK_Transport_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="Transport" EntitySet="Transport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Driver" Association="Self.FK_Transport_Driver">
+            <End Role="Driver" EntitySet="Driver" />
+            <End Role="Transport" EntitySet="Transport" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Client" Association="Self.FK_Transportation_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Transportation" EntitySet="Transportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Tariff" Association="Self.FK_Transportation_Tariff">
+            <End Role="Tariff" EntitySet="Tariff" />
+            <End Role="Transportation" EntitySet="Transportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Transport" Association="Self.FK_Transportation_Transport">
+            <End Role="Transport" EntitySet="Transport" />
+            <End Role="Transportation" EntitySet="Transportation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Position" Association="Self.FK_User_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LogisticsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Carrying" Type="Int32" />
+          <Property Name="Capacity" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transports" Relationship="Self.FK_Transport_Brand" FromRole="Brand" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CargoTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" />
+          <Property Name="SupplierID" Type="Int32" Nullable="false" />
+          <Property Name="UnitMeasurement" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="Int32" />
+          <NavigationProperty Name="CargoType" Relationship="Self.FK_Cargo_CargoType" FromRole="Cargo" ToRole="CargoType" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Cargo_Supplier" FromRole="Cargo" ToRole="Supplier" />
+          <NavigationProperty Name="CargoTransportations" Relationship="Self.FK_CargoTransportation_Cargo" FromRole="Cargo" ToRole="CargoTransportation" />
+        </EntityType>
+        <EntityType Name="CargoTransportation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CargoID" Type="Int32" Nullable="false" />
+          <Property Name="TransportationID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK_CargoTransportation_Cargo" FromRole="CargoTransportation" ToRole="Cargo" />
+          <NavigationProperty Name="Transportation" Relationship="Self.FK_CargoTransportation_Transportation" FromRole="CargoTransportation" ToRole="Transportation" />
+        </EntityType>
+        <EntityType Name="CargoType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Cargoes" Relationship="Self.FK_Cargo_CargoType" FromRole="CargoType" ToRole="Cargo" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transportations" Relationship="Self.FK_Transportation_Client" FromRole="Client" ToRole="Transportation" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DrivingCategory" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transports" Relationship="Self.FK_Transport_Driver" FromRole="Driver" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Position" FromRole="Position" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cargoes" Relationship="Self.FK_Cargo_Supplier" FromRole="Supplier" ToRole="Cargo" />
+        </EntityType>
+        <EntityType Name="Tariff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerKM" Type="Int32" />
+          <Property Name="PerHour" Type="Int32" />
+          <Property Name="PerKG" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Transportations" Relationship="Self.FK_Transportation_Tariff" FromRole="Tariff" ToRole="Transportation" />
+        </EntityType>
+        <EntityType Name="Transport">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandID" Type="Int32" Nullable="false" />
+          <Property Name="DateEntry" Type="DateTime" Precision="0" />
+          <Property Name="DriverID" Type="Int32" Nullable="false" />
+          <Property Name="StateNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Brand" Relationship="Self.FK_Transport_Brand" FromRole="Transport" ToRole="Brand" />
+          <NavigationProperty Name="Driver" Relationship="Self.FK_Transport_Driver" FromRole="Transport" ToRole="Driver" />
+          <NavigationProperty Name="Transportations" Relationship="Self.FK_Transportation_Transport" FromRole="Transport" ToRole="Transportation" />
+        </EntityType>
+        <EntityType Name="Transportation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateOrder" Type="DateTime" Precision="0" />
+          <Property Name="TransportID" Type="Int32" Nullable="false" />
+          <Property Name="PlaceDelivery" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ClientID" Type="Int32" Nullable="false" />
+          <Property Name="TariffID" Type="Int32" Nullable="false" />
+          <Property Name="Kilometrage" Type="Int32" />
+          <Property Name="TravelTime" Type="Int32" />
+          <Property Name="AdditionalData" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FuelQuantityDeparture" Type="Int32" />
+          <Property Name="FuelQuantityComing" Type="Int32" />
+          <Property Name="SpeedometerValueDeparture" Type="Int32" />
+          <Property Name="SpeedometerValueComing" Type="Int32" />
+          <Property Name="DateArrival" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CargoTransportations" Relationship="Self.FK_CargoTransportation_Transportation" FromRole="Transportation" ToRole="CargoTransportation" />
+          <NavigationProperty Name="Client" Relationship="Self.FK_Transportation_Client" FromRole="Transportation" ToRole="Client" />
+          <NavigationProperty Name="Tariff" Relationship="Self.FK_Transportation_Tariff" FromRole="Transportation" ToRole="Tariff" />
+          <NavigationProperty Name="Transport" Relationship="Self.FK_Transportation_Transport" FromRole="Transportation" ToRole="Transport" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PositionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_User_Position" FromRole="User" ToRole="Position" />
+        </EntityType>
+        <Association Name="FK_Transport_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="BrandID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cargo_CargoType">
+          <End Role="CargoType" Type="Self.CargoType" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CargoType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="CargoTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cargo_Supplier">
+          <End Role="Supplier" Type="Self.Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Cargo">
+              <PropertyRef Name="SupplierID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CargoTransportation_Cargo">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CargoTransportation">
+              <PropertyRef Name="CargoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CargoTransportation_Transportation">
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transportation">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CargoTransportation">
+              <PropertyRef Name="TransportationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="ClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transport_Driver">
+          <End Role="Driver" Type="Self.Driver" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transport" Type="Self.Transport" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driver">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transport">
+              <PropertyRef Name="DriverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Tariff">
+          <End Role="Tariff" Type="Self.Tariff" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tariff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TariffID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transportation_Transport">
+          <End Role="Transport" Type="Self.Transport" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Transport">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transportation">
+              <PropertyRef Name="TransportID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LogisticsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Brands" EntityType="Self.Brand" />
+          <EntitySet Name="Cargoes" EntityType="Self.Cargo" />
+          <EntitySet Name="CargoTransportations" EntityType="Self.CargoTransportation" />
+          <EntitySet Name="CargoTypes" EntityType="Self.CargoType" />
+          <EntitySet Name="Clients" EntityType="Self.Client" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="Tariffs" EntityType="Self.Tariff" />
+          <EntitySet Name="Transports" EntityType="Self.Transport" />
+          <EntitySet Name="Transportations" EntityType="Self.Transportation" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Transport_Brand" Association="Self.FK_Transport_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="Transport" EntitySet="Transports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cargo_CargoType" Association="Self.FK_Cargo_CargoType">
+            <End Role="CargoType" EntitySet="CargoTypes" />
+            <End Role="Cargo" EntitySet="Cargoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cargo_Supplier" Association="Self.FK_Cargo_Supplier">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Cargo" EntitySet="Cargoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CargoTransportation_Cargo" Association="Self.FK_CargoTransportation_Cargo">
+            <End Role="Cargo" EntitySet="Cargoes" />
+            <End Role="CargoTransportation" EntitySet="CargoTransportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CargoTransportation_Transportation" Association="Self.FK_CargoTransportation_Transportation">
+            <End Role="Transportation" EntitySet="Transportations" />
+            <End Role="CargoTransportation" EntitySet="CargoTransportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Client" Association="Self.FK_Transportation_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transport_Driver" Association="Self.FK_Transport_Driver">
+            <End Role="Driver" EntitySet="Drivers" />
+            <End Role="Transport" EntitySet="Transports" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Position" Association="Self.FK_User_Position">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Tariff" Association="Self.FK_Transportation_Tariff">
+            <End Role="Tariff" EntitySet="Tariffs" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transportation_Transport" Association="Self.FK_Transportation_Transport">
+            <End Role="Transport" EntitySet="Transports" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LogisticsDBModelContainer" CdmEntityContainer="LogisticsDBEntities">
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Carrying" ColumnName="Carrying" />
+                <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargoes">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CargoTypeID" ColumnName="CargoTypeID" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="UnitMeasurement" ColumnName="UnitMeasurement" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargoTransportations">
+            <EntityTypeMapping TypeName="LogisticsDBModel.CargoTransportation">
+              <MappingFragment StoreEntitySet="CargoTransportation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CargoID" ColumnName="CargoID" />
+                <ScalarProperty Name="TransportationID" ColumnName="TransportationID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CargoTypes">
+            <EntityTypeMapping TypeName="LogisticsDBModel.CargoType">
+              <MappingFragment StoreEntitySet="CargoType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Driver">
+              <MappingFragment StoreEntitySet="Driver">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DrivingCategory" ColumnName="DrivingCategory" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tariffs">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Tariff">
+              <MappingFragment StoreEntitySet="Tariff">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PerKM" ColumnName="PerKM" />
+                <ScalarProperty Name="PerHour" ColumnName="PerHour" />
+                <ScalarProperty Name="PerKG" ColumnName="PerKG" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transports">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Transport">
+              <MappingFragment StoreEntitySet="Transport">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BrandID" ColumnName="BrandID" />
+                <ScalarProperty Name="DateEntry" ColumnName="DateEntry" />
+                <ScalarProperty Name="DriverID" ColumnName="DriverID" />
+                <ScalarProperty Name="StateNumber" ColumnName="StateNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transportations">
+            <EntityTypeMapping TypeName="LogisticsDBModel.Transportation">
+              <MappingFragment StoreEntitySet="Transportation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+                <ScalarProperty Name="TransportID" ColumnName="TransportID" />
+                <ScalarProperty Name="PlaceDelivery" ColumnName="PlaceDelivery" />
+                <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+                <ScalarProperty Name="TariffID" ColumnName="TariffID" />
+                <ScalarProperty Name="Kilometrage" ColumnName="Kilometrage" />
+                <ScalarProperty Name="TravelTime" ColumnName="TravelTime" />
+                <ScalarProperty Name="AdditionalData" ColumnName="AdditionalData" />
+                <ScalarProperty Name="FuelQuantityDeparture" ColumnName="FuelQuantityDeparture" />
+                <ScalarProperty Name="FuelQuantityComing" ColumnName="FuelQuantityComing" />
+                <ScalarProperty Name="SpeedometerValueDeparture" ColumnName="SpeedometerValueDeparture" />
+                <ScalarProperty Name="SpeedometerValueComing" ColumnName="SpeedometerValueComing" />
+                <ScalarProperty Name="DateArrival" ColumnName="DateArrival" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LogisticsDBModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

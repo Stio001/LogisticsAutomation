@@ -47,7 +47,6 @@
             this.btnCargos = new System.Windows.Forms.Button();
             this.btnCargoType = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,22 +219,11 @@
             this.btnSuppliers.UseVisualStyleBackColor = true;
             this.btnSuppliers.Click += new System.EventHandler(this.frmSuppliersOpen);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(253, 87);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 379);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSuppliers);
             this.Controls.Add(this.btnCargoType);
             this.Controls.Add(this.btnCargos);
@@ -278,7 +266,6 @@
         private System.Windows.Forms.Button btnCargos;
         private System.Windows.Forms.Button btnCargoType;
         private System.Windows.Forms.Button btnSuppliers;
-        private System.Windows.Forms.Button button1;
     }
 }
 

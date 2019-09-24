@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e6a5133ae20b408b8279627f09f1f804" Name="Diagram1">
+        <EntityTypeShape EntityType="LogisticsDBModel.Brand" Width="1.5" PointX="0.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Cargo" Width="1.5" PointX="6.625" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.CargoTransportation" Width="1.5" PointX="6.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.CargoType" Width="1.5" PointX="8.625" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Client" Width="1.5" PointX="2.375" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Driver" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Position" Width="1.5" PointX="0.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Supplier" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Tariff" Width="1.5" PointX="4.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Transport" Width="1.5" PointX="2.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Transportation" Width="1.5" PointX="4.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.User" Width="1.5" PointX="2.5" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Transport_Brand" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Cargo_CargoType" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Cargo_Supplier" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_CargoTransportation_Cargo" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_CargoTransportation_Transportation" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Transportation_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Transport_Driver" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_User_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Transportation_Tariff" ManuallyRouted="false" />
+        <AssociationConnector Association="LogisticsDBModel.FK_Transportation_Transport" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
