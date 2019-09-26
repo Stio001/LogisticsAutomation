@@ -141,6 +141,7 @@
             // 
             // btnDelivery
             // 
+            this.btnDelivery.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDelivery.Location = new System.Drawing.Point(12, 27);
             this.btnDelivery.Name = "btnDelivery";
             this.btnDelivery.Size = new System.Drawing.Size(179, 63);
@@ -151,6 +152,7 @@
             // 
             // btnDrivers
             // 
+            this.btnDrivers.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDrivers.Location = new System.Drawing.Point(12, 96);
             this.btnDrivers.Name = "btnDrivers";
             this.btnDrivers.Size = new System.Drawing.Size(179, 63);
@@ -161,6 +163,7 @@
             // 
             // btnTransport
             // 
+            this.btnTransport.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnTransport.Location = new System.Drawing.Point(12, 165);
             this.btnTransport.Name = "btnTransport";
             this.btnTransport.Size = new System.Drawing.Size(179, 63);
@@ -171,6 +174,7 @@
             // 
             // btnTariffs
             // 
+            this.btnTariffs.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnTariffs.Location = new System.Drawing.Point(12, 234);
             this.btnTariffs.Name = "btnTariffs";
             this.btnTariffs.Size = new System.Drawing.Size(179, 63);
@@ -181,6 +185,7 @@
             // 
             // btnClients
             // 
+            this.btnClients.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnClients.Location = new System.Drawing.Point(12, 303);
             this.btnClients.Name = "btnClients";
             this.btnClients.Size = new System.Drawing.Size(179, 63);
@@ -191,6 +196,7 @@
             // 
             // btnCargos
             // 
+            this.btnCargos.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCargos.Location = new System.Drawing.Point(208, 165);
             this.btnCargos.Name = "btnCargos";
             this.btnCargos.Size = new System.Drawing.Size(179, 63);
@@ -201,6 +207,7 @@
             // 
             // btnCargoType
             // 
+            this.btnCargoType.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCargoType.Location = new System.Drawing.Point(208, 234);
             this.btnCargoType.Name = "btnCargoType";
             this.btnCargoType.Size = new System.Drawing.Size(179, 63);
@@ -211,6 +218,7 @@
             // 
             // btnSuppliers
             // 
+            this.btnSuppliers.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSuppliers.Location = new System.Drawing.Point(208, 303);
             this.btnSuppliers.Name = "btnSuppliers";
             this.btnSuppliers.Size = new System.Drawing.Size(179, 63);
@@ -233,9 +241,11 @@
             this.Controls.Add(this.btnDrivers);
             this.Controls.Add(this.btnDelivery);
             this.Controls.Add(this.menuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.MaximizeBox = false;
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Система автоматизации логистической компании";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.menuStrip.ResumeLayout(false);

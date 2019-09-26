@@ -73,6 +73,12 @@
     <Compile Include="Client.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormDriver.Designer.cs">
+      <DependentUpon>DFormDriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="Driver.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
@@ -201,6 +207,9 @@
     <Compile Include="User.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DialogForms\DFormDriver.resx">
+      <DependentUpon>DFormDriver.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormCargos.resx">
       <DependentUpon>FormCargos.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,7 +313,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DialogForms\" />
     <Folder Include="Image\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
