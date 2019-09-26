@@ -76,7 +76,7 @@
             this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDrivers.Size = new System.Drawing.Size(492, 201);
             this.dgvDrivers.TabIndex = 0;
-            this.dgvDrivers.SelectionChanged += new System.EventHandler(this.dgvDrivers_SelectionChanged);
+            this.dgvDrivers.SelectionChanged += new System.EventHandler(this.LoadComments);
             this.dgvDrivers.DoubleClick += new System.EventHandler(this.btnChange_Click);
             // 
             // idDgvTbColumn
@@ -237,7 +237,7 @@
             this.btnReset.TabIndex = 3;
             this.btnReset.Text = "Сброс";
             this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.btnReset.Click += new System.EventHandler(this.ResetSearch);
             // 
             // FormDrivers
             // 
