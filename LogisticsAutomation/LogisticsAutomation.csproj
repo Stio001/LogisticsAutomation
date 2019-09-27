@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SuperMain.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
@@ -78,6 +81,12 @@
     </Compile>
     <Compile Include="DialogForms\DFormDriver.Designer.cs">
       <DependentUpon>DFormDriver.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogForms\DFormTariff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormTariff.Designer.cs">
+      <DependentUpon>DFormTariff.cs</DependentUpon>
     </Compile>
     <Compile Include="Driver.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
@@ -210,6 +219,9 @@
     <EmbeddedResource Include="DialogForms\DFormDriver.resx">
       <DependentUpon>DFormDriver.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormTariff.resx">
+      <DependentUpon>DFormTariff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormCargos.resx">
       <DependentUpon>FormCargos.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,6 +275,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Logistics.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -308,13 +321,21 @@
       <DependentUpon>Logistics.edmx</DependentUpon>
       <LastGenOutput>Logistics.cs</LastGenOutput>
     </Content>
+    <Content Include="SuperMain.ico" />
+    <None Include="Resources\Supplier.png" />
+    <None Include="Resources\CargoType.png" />
+    <None Include="Resources\Cargo.png" />
+    <None Include="Resources\Client.png" />
+    <None Include="Resources\Tariff.png" />
+    <None Include="Resources\Transport.png" />
+    <None Include="Resources\Driver.png" />
+    <None Include="Resources\Delivery.png" />
+    <None Include="Resources\Main.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Image\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
