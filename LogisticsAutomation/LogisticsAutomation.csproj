@@ -76,6 +76,12 @@
     <Compile Include="Client.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormClient.Designer.cs">
+      <DependentUpon>DFormClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormDriver.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <Compile Include="User.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DialogForms\DFormClient.resx">
+      <DependentUpon>DFormClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormDriver.resx">
       <DependentUpon>DFormDriver.cs</DependentUpon>
     </EmbeddedResource>
