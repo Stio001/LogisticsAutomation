@@ -98,6 +98,7 @@ namespace LogisticsAutomation
                 driver.Comments = dFormDriver.rtbComments.Text;
 
                 db.SaveChanges();
+                dgvDrivers.Refresh();
                 LoadComments(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект обновлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);         

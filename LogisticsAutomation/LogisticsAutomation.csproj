@@ -82,6 +82,12 @@
     <Compile Include="DialogForms\DFormDriver.Designer.cs">
       <DependentUpon>DFormDriver.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormSupplier.Designer.cs">
+      <DependentUpon>DFormSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormTariff.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </Compile>
     <EmbeddedResource Include="DialogForms\DFormDriver.resx">
       <DependentUpon>DFormDriver.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormSupplier.resx">
+      <DependentUpon>DFormSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormTariff.resx">
       <DependentUpon>DFormTariff.cs</DependentUpon>

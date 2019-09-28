@@ -43,10 +43,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.gpFiltration = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearchByName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             this.gpNavigation.SuspendLayout();
@@ -203,6 +203,16 @@
             this.gpFiltration.TabStop = false;
             this.gpFiltration.Text = "Фильтрация";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(424, 20);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(74, 23);
+            this.btnReset.TabIndex = 3;
+            this.btnReset.Text = "Сброс";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.ResetSearch);
+            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(347, 20);
@@ -223,21 +233,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 25);
+            this.label1.Location = new System.Drawing.Point(4, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(93, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "По полю ФИО:";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(424, 20);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(74, 23);
-            this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "Сброс";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.ResetSearch);
+            this.label1.Text = "По полю \"ФИО\":";
             // 
             // FormDrivers
             // 

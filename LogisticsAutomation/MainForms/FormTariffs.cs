@@ -101,6 +101,7 @@ namespace LogisticsAutomation
                 tariff.Description = dFormTariff.rtbDescription.Text;
 
                 db.SaveChanges();
+                dgvTariffs.Refresh();
                 LoadDescription(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект обновлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
