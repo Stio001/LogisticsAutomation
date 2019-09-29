@@ -33,11 +33,17 @@
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cmbSearchByBrand = new System.Windows.Forms.ComboBox();
+            this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.tbSearchByStNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gpNavigation = new System.Windows.Forms.GroupBox();
             this.dgvTransport = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateEntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpDriverInfo = new System.Windows.Forms.GroupBox();
             this.tbPhoneDriver = new System.Windows.Forms.TextBox();
             this.tbCategoryDriver = new System.Windows.Forms.TextBox();
@@ -52,18 +58,14 @@
             this.gpAdditionally = new System.Windows.Forms.GroupBox();
             this.btnDrivers = new System.Windows.Forms.Button();
             this.btnBrands = new System.Windows.Forms.Button();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateEntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transportBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpFiltration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).BeginInit();
             this.gpNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transportBindingSource)).BeginInit();
             this.gpDriverInfo.SuspendLayout();
             this.gpOperations.SuspendLayout();
             this.gpAdditionally.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transportBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gpFiltration
@@ -99,15 +101,24 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Найти";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.SearchObjects);
             // 
             // cmbSearchByBrand
             // 
+            this.cmbSearchByBrand.DataSource = this.brandBindingSource;
+            this.cmbSearchByBrand.DisplayMember = "Name";
+            this.cmbSearchByBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearchByBrand.FormattingEnabled = true;
+            this.cmbSearchByBrand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cmbSearchByBrand.Location = new System.Drawing.Point(364, 25);
             this.cmbSearchByBrand.Name = "cmbSearchByBrand";
             this.cmbSearchByBrand.Size = new System.Drawing.Size(125, 21);
             this.cmbSearchByBrand.TabIndex = 3;
+            this.cmbSearchByBrand.ValueMember = "ID";
+            // 
+            // brandBindingSource
+            // 
+            this.brandBindingSource.DataSource = typeof(LogisticsAutomation.Brand);
             // 
             // label2
             // 
@@ -163,6 +174,43 @@
             this.dgvTransport.TabIndex = 0;
             this.dgvTransport.SelectionChanged += new System.EventHandler(this.LoadDriverInfo);
             this.dgvTransport.DoubleClick += new System.EventHandler(this.btnChange_Click);
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // stateNumberDataGridViewTextBoxColumn
+            // 
+            this.stateNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.stateNumberDataGridViewTextBoxColumn.DataPropertyName = "StateNumber";
+            this.stateNumberDataGridViewTextBoxColumn.HeaderText = "Госномер";
+            this.stateNumberDataGridViewTextBoxColumn.Name = "stateNumberDataGridViewTextBoxColumn";
+            this.stateNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateEntryDataGridViewTextBoxColumn
+            // 
+            this.dateEntryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateEntryDataGridViewTextBoxColumn.DataPropertyName = "DateEntry";
+            this.dateEntryDataGridViewTextBoxColumn.HeaderText = "Дата ввода";
+            this.dateEntryDataGridViewTextBoxColumn.Name = "dateEntryDataGridViewTextBoxColumn";
+            this.dateEntryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // brandDataGridViewTextBoxColumn
+            // 
+            this.brandDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
+            this.brandDataGridViewTextBoxColumn.HeaderText = "Марка";
+            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
+            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // transportBindingSource
+            // 
+            this.transportBindingSource.DataSource = typeof(LogisticsAutomation.Transport);
             // 
             // gpDriverInfo
             // 
@@ -303,43 +351,6 @@
             this.btnBrands.UseVisualStyleBackColor = true;
             this.btnBrands.Click += new System.EventHandler(this.btnBrands_Click);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // stateNumberDataGridViewTextBoxColumn
-            // 
-            this.stateNumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.stateNumberDataGridViewTextBoxColumn.DataPropertyName = "StateNumber";
-            this.stateNumberDataGridViewTextBoxColumn.HeaderText = "Госномер";
-            this.stateNumberDataGridViewTextBoxColumn.Name = "stateNumberDataGridViewTextBoxColumn";
-            this.stateNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateEntryDataGridViewTextBoxColumn
-            // 
-            this.dateEntryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateEntryDataGridViewTextBoxColumn.DataPropertyName = "DateEntry";
-            this.dateEntryDataGridViewTextBoxColumn.HeaderText = "Дата ввода";
-            this.dateEntryDataGridViewTextBoxColumn.Name = "dateEntryDataGridViewTextBoxColumn";
-            this.dateEntryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // brandDataGridViewTextBoxColumn
-            // 
-            this.brandDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.brandDataGridViewTextBoxColumn.DataPropertyName = "Brand";
-            this.brandDataGridViewTextBoxColumn.HeaderText = "Марка";
-            this.brandDataGridViewTextBoxColumn.Name = "brandDataGridViewTextBoxColumn";
-            this.brandDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // transportBindingSource
-            // 
-            this.transportBindingSource.DataSource = typeof(LogisticsAutomation.Transport);
-            // 
             // FormTransports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -357,13 +368,14 @@
             this.Text = "Автотранспорт";
             this.gpFiltration.ResumeLayout(false);
             this.gpFiltration.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.brandBindingSource)).EndInit();
             this.gpNavigation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transportBindingSource)).EndInit();
             this.gpDriverInfo.ResumeLayout(false);
             this.gpDriverInfo.PerformLayout();
             this.gpOperations.ResumeLayout(false);
             this.gpAdditionally.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.transportBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -398,5 +410,6 @@
         private System.Windows.Forms.GroupBox gpAdditionally;
         private System.Windows.Forms.Button btnDrivers;
         private System.Windows.Forms.Button btnBrands;
+        private System.Windows.Forms.BindingSource brandBindingSource;
     }
 }
