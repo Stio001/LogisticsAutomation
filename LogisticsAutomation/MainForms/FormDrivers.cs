@@ -34,16 +34,18 @@ namespace LogisticsAutomation
             if (dialogResult == DialogResult.Cancel)
                 return;
 
-            Driver driver = new Driver();
-            driver.Name = dFormDriver.tbName.Text;
-            driver.Phone = dFormDriver.tbPhone.Text;
-            driver.DrivingCategory = dFormDriver.tbDrivengCategory.Text;
-            driver.Comments = dFormDriver.rtbComments.Text;
+            Driver driver = new Driver
+            {
+                Name = dFormDriver.tbName.Text,
+                Phone = dFormDriver.tbPhone.Text,
+                DrivingCategory = dFormDriver.tbDrivengCategory.Text,
+                Comments = dFormDriver.rtbComments.Text
+            };
 
             db.Drivers.Add(driver);
             db.SaveChanges();
 
-            ResetSearch(this, EventArgs.Empty);
+            SearchObjects(this, EventArgs.Empty);
 
             MessageBox.Show("Новый объект добавлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -63,6 +65,8 @@ namespace LogisticsAutomation
             
                 db.Drivers.Remove(driver);
                 db.SaveChanges();
+
+                SearchObjects(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект удален.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -99,6 +103,7 @@ namespace LogisticsAutomation
 
                 db.SaveChanges();
                 dgvDrivers.Refresh();
+
                 LoadComments(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект обновлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);         
@@ -126,9 +131,16 @@ namespace LogisticsAutomation
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SearchObjects(object sender, EventArgs e)
         {
-            dgvDrivers.DataSource = db.Drivers.Local.Where(x => x.Name.Contains(tbSearchByName.Text)).ToList();
+            if (tbSearchByName.TextLength > 0)
+            {
+                dgvDrivers.DataSource = db.Drivers.Local.Where(x => x.Name.Contains(tbSearchByName.Text)).ToList();
+            }
+            else
+            {
+                dgvDrivers.DataSource = db.Drivers.Local.ToBindingList();
+            }
         }
 
         private void ResetSearch(object sender, EventArgs e)

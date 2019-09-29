@@ -87,7 +87,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Найти";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.SearchObjects);
             // 
             // tbSearchByName
             // 

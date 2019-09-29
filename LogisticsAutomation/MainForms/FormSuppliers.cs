@@ -34,17 +34,19 @@ namespace LogisticsAutomation
             if (dialogResult == DialogResult.Cancel)
                 return;
 
-            Supplier supplier = new Supplier();
-            supplier.Name = dFormSupplier.tbName.Text;
-            supplier.Address = dFormSupplier.tbAddress.Text;
-            supplier.Phone = dFormSupplier.tbPhone.Text;
-            supplier.ContactPerson = dFormSupplier.tbContactPerson.Text;
-            supplier.Description = dFormSupplier.rtbDescription.Text;
+            Supplier supplier = new Supplier
+            {
+                Name = dFormSupplier.tbName.Text,
+                Address = dFormSupplier.tbAddress.Text,
+                Phone = dFormSupplier.tbPhone.Text,
+                ContactPerson = dFormSupplier.tbContactPerson.Text,
+                Description = dFormSupplier.rtbDescription.Text
+            };
 
             db.Suppliers.Add(supplier);
             db.SaveChanges();
 
-            ResetSearch(this, EventArgs.Empty);
+            SearchObjects(this, EventArgs.Empty);
 
             MessageBox.Show("Новый объект добавлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -64,6 +66,8 @@ namespace LogisticsAutomation
 
                 db.Suppliers.Remove(supplier);
                 db.SaveChanges();
+
+                SearchObjects(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект удален.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -102,6 +106,7 @@ namespace LogisticsAutomation
 
                 db.SaveChanges();
                 dgvSuppliers.Refresh();
+
                 LoadDescription(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект обновлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,9 +134,16 @@ namespace LogisticsAutomation
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SearchObjects(object sender, EventArgs e)
         {
-            dgvSuppliers.DataSource = db.Suppliers.Local.Where(s => s.Name.Contains(tbSearchByName.Text)).ToList();
+            if (tbSearchByName.TextLength > 0)
+            {
+                dgvSuppliers.DataSource = db.Suppliers.Local.Where(s => s.Name.Contains(tbSearchByName.Text)).ToList();
+            }
+            else
+            {
+                dgvSuppliers.DataSource = db.Suppliers.Local.ToBindingList();
+            }
         }
 
         private void ResetSearch(object sender, EventArgs e)

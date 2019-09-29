@@ -34,17 +34,19 @@ namespace LogisticsAutomation
             if (dialogResult == DialogResult.Cancel)
                 return;
 
-            Tariff tariff = new Tariff();
-            tariff.Name = dFormTariff.tbName.Text;
-            tariff.PerHour = (int)dFormTariff.ntbPerHour.Value;
-            tariff.PerKG = (int)dFormTariff.ntbPerKG.Value;
-            tariff.PerKM = (int)dFormTariff.ntbPerKM.Value;
-            tariff.Description = dFormTariff.rtbDescription.Text;
+            Tariff tariff = new Tariff
+            {
+                Name = dFormTariff.tbName.Text,
+                PerHour = (int)dFormTariff.ntbPerHour.Value,
+                PerKG = (int)dFormTariff.ntbPerKG.Value,
+                PerKM = (int)dFormTariff.ntbPerKM.Value,
+                Description = dFormTariff.rtbDescription.Text
+            };
 
             db.Tariffs.Add(tariff);
             db.SaveChanges();
 
-            ResetSearch(this, EventArgs.Empty);
+            SearchObjects(this, EventArgs.Empty);
 
             MessageBox.Show("Новый объект добавлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -64,6 +66,8 @@ namespace LogisticsAutomation
 
                 db.Tariffs.Remove(tariff);
                 db.SaveChanges();
+
+                SearchObjects(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект удален.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -102,6 +106,7 @@ namespace LogisticsAutomation
 
                 db.SaveChanges();
                 dgvTariffs.Refresh();
+
                 LoadDescription(this, EventArgs.Empty);
 
                 MessageBox.Show("Объект обновлен.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,9 +134,16 @@ namespace LogisticsAutomation
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void SearchObjects(object sender, EventArgs e)
         {
-            dgvTariffs.DataSource = db.Tariffs.Local.Where(t => t.Name.Contains(tbSearchByName.Text)).ToList();
+            if (tbSearchByName.TextLength > 0)
+            {
+                dgvTariffs.DataSource = db.Tariffs.Local.Where(t => t.Name.Contains(tbSearchByName.Text)).ToList();
+            }
+            else
+            {
+                dgvTariffs.DataSource = db.Tariffs.Local.ToBindingList();
+            }
         }
 
         private void ResetSearch(object sender, EventArgs e)

@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvDrivers = new System.Windows.Forms.DataGridView();
-            this.idDgvTbColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drivingCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.rtbComments = new System.Windows.Forms.RichTextBox();
             this.gpNavigation = new System.Windows.Forms.GroupBox();
             this.gpComments = new System.Windows.Forms.GroupBox();
@@ -47,12 +42,17 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearchByName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.idDgvTbColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drivingCategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driverBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             this.gpNavigation.SuspendLayout();
             this.gpComments.SuspendLayout();
             this.gpOperations.SuspendLayout();
             this.gpFiltration.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDrivers
@@ -78,43 +78,6 @@
             this.dgvDrivers.TabIndex = 0;
             this.dgvDrivers.SelectionChanged += new System.EventHandler(this.LoadComments);
             this.dgvDrivers.DoubleClick += new System.EventHandler(this.btnChange_Click);
-            // 
-            // idDgvTbColumn
-            // 
-            this.idDgvTbColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.idDgvTbColumn.DataPropertyName = "ID";
-            this.idDgvTbColumn.HeaderText = "Код";
-            this.idDgvTbColumn.Name = "idDgvTbColumn";
-            this.idDgvTbColumn.ReadOnly = true;
-            this.idDgvTbColumn.Width = 51;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // drivingCategoryDataGridViewTextBoxColumn
-            // 
-            this.drivingCategoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.drivingCategoryDataGridViewTextBoxColumn.DataPropertyName = "DrivingCategory";
-            this.drivingCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
-            this.drivingCategoryDataGridViewTextBoxColumn.Name = "drivingCategoryDataGridViewTextBoxColumn";
-            this.drivingCategoryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // driverBindingSource
-            // 
-            this.driverBindingSource.DataSource = typeof(LogisticsAutomation.Driver);
             // 
             // rtbComments
             // 
@@ -221,7 +184,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Поиск";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.SearchObjects);
             // 
             // tbSearchByName
             // 
@@ -239,6 +202,43 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "По полю \"ФИО\":";
             // 
+            // idDgvTbColumn
+            // 
+            this.idDgvTbColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.idDgvTbColumn.DataPropertyName = "ID";
+            this.idDgvTbColumn.HeaderText = "Код";
+            this.idDgvTbColumn.Name = "idDgvTbColumn";
+            this.idDgvTbColumn.ReadOnly = true;
+            this.idDgvTbColumn.Width = 51;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ФИО";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // drivingCategoryDataGridViewTextBoxColumn
+            // 
+            this.drivingCategoryDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.drivingCategoryDataGridViewTextBoxColumn.DataPropertyName = "DrivingCategory";
+            this.drivingCategoryDataGridViewTextBoxColumn.HeaderText = "Категория";
+            this.drivingCategoryDataGridViewTextBoxColumn.Name = "drivingCategoryDataGridViewTextBoxColumn";
+            this.drivingCategoryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // driverBindingSource
+            // 
+            this.driverBindingSource.DataSource = typeof(LogisticsAutomation.Driver);
+            // 
             // FormDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,12 +254,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Водители";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).EndInit();
             this.gpNavigation.ResumeLayout(false);
             this.gpComments.ResumeLayout(false);
             this.gpOperations.ResumeLayout(false);
             this.gpFiltration.ResumeLayout(false);
             this.gpFiltration.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
