@@ -40,5 +40,10 @@ namespace LogisticsAutomation
         public virtual Client Client { get; set; }
         public virtual Tariff Tariff { get; set; }
         public virtual Transport Transport { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format($"{ID.ToString()} | {DateOrder.Value.ToShortDateString()}");
+        }
     }
 }

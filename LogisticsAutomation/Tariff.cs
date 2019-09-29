@@ -29,5 +29,10 @@ namespace LogisticsAutomation
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transportation> Transportations { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
