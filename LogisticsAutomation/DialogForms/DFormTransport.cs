@@ -15,12 +15,6 @@ namespace LogisticsAutomation.DialogForms
         public DFormTransport()
         {
             InitializeComponent();
-
-            using (LogisticsDBEntities db = new LogisticsDBEntities())
-            {
-                cmbDriver.DataSource = db.Drivers.ToList();
-                cmbBrand.DataSource = db.Brands.ToList();
-            }
         }
     }
 }

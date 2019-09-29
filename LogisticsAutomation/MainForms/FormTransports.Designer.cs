@@ -32,9 +32,7 @@
             this.gpFiltration = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.cmbSearchByBrand = new System.Windows.Forms.ComboBox();
             this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.tbSearchByStNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gpNavigation = new System.Windows.Forms.GroupBox();
@@ -72,8 +70,6 @@
             // 
             this.gpFiltration.Controls.Add(this.btnReset);
             this.gpFiltration.Controls.Add(this.btnSearch);
-            this.gpFiltration.Controls.Add(this.cmbSearchByBrand);
-            this.gpFiltration.Controls.Add(this.label2);
             this.gpFiltration.Controls.Add(this.tbSearchByStNumber);
             this.gpFiltration.Controls.Add(this.label1);
             this.gpFiltration.Location = new System.Drawing.Point(12, 12);
@@ -85,9 +81,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(586, 23);
+            this.btnReset.Location = new System.Drawing.Point(549, 23);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(87, 23);
+            this.btnReset.Size = new System.Drawing.Size(124, 23);
             this.btnReset.TabIndex = 5;
             this.btnReset.Text = "Сброс";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -95,45 +91,23 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(495, 23);
+            this.btnSearch.Location = new System.Drawing.Point(422, 23);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(87, 23);
+            this.btnSearch.Size = new System.Drawing.Size(124, 23);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Найти";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.SearchObjects);
             // 
-            // cmbSearchByBrand
-            // 
-            this.cmbSearchByBrand.DataSource = this.brandBindingSource;
-            this.cmbSearchByBrand.DisplayMember = "Name";
-            this.cmbSearchByBrand.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSearchByBrand.FormattingEnabled = true;
-            this.cmbSearchByBrand.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cmbSearchByBrand.Location = new System.Drawing.Point(364, 25);
-            this.cmbSearchByBrand.Name = "cmbSearchByBrand";
-            this.cmbSearchByBrand.Size = new System.Drawing.Size(125, 21);
-            this.cmbSearchByBrand.TabIndex = 3;
-            this.cmbSearchByBrand.ValueMember = "ID";
-            // 
             // brandBindingSource
             // 
             this.brandBindingSource.DataSource = typeof(LogisticsAutomation.Brand);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "По полю \"Марка\":";
             // 
             // tbSearchByStNumber
             // 
             this.tbSearchByStNumber.Location = new System.Drawing.Point(128, 25);
             this.tbSearchByStNumber.Name = "tbSearchByStNumber";
-            this.tbSearchByStNumber.Size = new System.Drawing.Size(125, 20);
+            this.tbSearchByStNumber.Size = new System.Drawing.Size(288, 20);
             this.tbSearchByStNumber.TabIndex = 1;
             // 
             // label1
@@ -170,6 +144,7 @@
             this.dgvTransport.Location = new System.Drawing.Point(6, 19);
             this.dgvTransport.Name = "dgvTransport";
             this.dgvTransport.ReadOnly = true;
+            this.dgvTransport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTransport.Size = new System.Drawing.Size(667, 163);
             this.dgvTransport.TabIndex = 0;
             this.dgvTransport.SelectionChanged += new System.EventHandler(this.LoadDriverInfo);
@@ -385,8 +360,6 @@
         private System.Windows.Forms.GroupBox gpFiltration;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.ComboBox cmbSearchByBrand;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbSearchByStNumber;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gpNavigation;
