@@ -82,6 +82,12 @@
     <Compile Include="DialogForms\DFormBrand.Designer.cs">
       <DependentUpon>DFormBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormCargoType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormCargoType.Designer.cs">
+      <DependentUpon>DFormCargoType.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,7 @@
     <Compile Include="Driver.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
+    <Compile Include="ImageExtension.cs" />
     <Compile Include="MainForms\FormCargos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,12 +175,6 @@
     </Compile>
     <Compile Include="MainForms\FormBrands.Designer.cs">
       <DependentUpon>FormBrands.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainForms\FormCargoAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForms\FormCargoAdd.Designer.cs">
-      <DependentUpon>FormCargoAdd.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForms\FormSuppliers.cs">
       <SubType>Form</SubType>
@@ -243,6 +244,9 @@
     <EmbeddedResource Include="DialogForms\DFormBrand.resx">
       <DependentUpon>DFormBrand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormCargoType.resx">
+      <DependentUpon>DFormCargoType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormClient.resx">
       <DependentUpon>DFormClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,9 +288,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormBrands.resx">
       <DependentUpon>FormBrands.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\FormCargoAdd.resx">
-      <DependentUpon>FormCargoAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormSuppliers.resx">
       <DependentUpon>FormSuppliers.cs</DependentUpon>

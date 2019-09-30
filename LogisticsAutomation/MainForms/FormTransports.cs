@@ -164,7 +164,7 @@ namespace LogisticsAutomation
             FormBrands formBrands = new FormBrands();
             formBrands.ShowDialog();
 
-            RefreshContext();
+            RefreshDBEntries();
             dgvTransport.Refresh();
         }
 
@@ -173,12 +173,12 @@ namespace LogisticsAutomation
             FormDrivers formDrivers = new FormDrivers();
             formDrivers.ShowDialog();
 
-            RefreshContext();
+            RefreshDBEntries();
             dgvTransport.Refresh();
             LoadDriverInfo(this, EventArgs.Empty);
         }
 
-        public void RefreshContext()
+        public void RefreshDBEntries()
         {
             foreach (var entity in db.ChangeTracker.Entries())
             {
