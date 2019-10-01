@@ -82,6 +82,12 @@
     <Compile Include="DialogForms\DFormBrand.Designer.cs">
       <DependentUpon>DFormBrand.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormCargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormCargo.Designer.cs">
+      <DependentUpon>DFormCargo.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormCargoType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,11 +128,11 @@
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
     <Compile Include="ImageExtension.cs" />
-    <Compile Include="MainForms\FormCargos.cs">
+    <Compile Include="MainForms\FormCargoes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForms\FormCargos.Designer.cs">
-      <DependentUpon>FormCargos.cs</DependentUpon>
+    <Compile Include="MainForms\FormCargoes.Designer.cs">
+      <DependentUpon>FormCargoes.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForms\FormCargoType.cs">
       <SubType>Form</SubType>
@@ -244,6 +250,9 @@
     <EmbeddedResource Include="DialogForms\DFormBrand.resx">
       <DependentUpon>DFormBrand.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormCargo.resx">
+      <DependentUpon>DFormCargo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormCargoType.resx">
       <DependentUpon>DFormCargoType.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,8 +271,8 @@
     <EmbeddedResource Include="DialogForms\DFormTransport.resx">
       <DependentUpon>DFormTransport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForms\FormCargos.resx">
-      <DependentUpon>FormCargos.cs</DependentUpon>
+    <EmbeddedResource Include="MainForms\FormCargoes.resx">
+      <DependentUpon>FormCargoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormCargoType.resx">
       <DependentUpon>FormCargoType.cs</DependentUpon>

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LogisticsAutomation
+namespace LogisticsAutomation.DialogForms
 {
-    public partial class FormCargos : Form
+    public partial class DFormCargo : Form
     {
-        public FormCargos()
+        public DFormCargo()
         {
             InitializeComponent();
         }

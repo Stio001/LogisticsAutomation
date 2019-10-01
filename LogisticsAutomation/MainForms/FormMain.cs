@@ -31,7 +31,7 @@ namespace LogisticsAutomation
 
         private void frmCargosOpen(object sender, EventArgs e)
         {
-            FormCargos formCargos = new FormCargos();
+            FormCargoes formCargos = new FormCargoes();
             formCargos.ShowDialog();
         }
 
