@@ -106,6 +106,12 @@
     <Compile Include="DialogForms\DFormDriver.Designer.cs">
       <DependentUpon>DFormDriver.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormPosition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormPosition.Designer.cs">
+      <DependentUpon>DFormPosition.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     </Compile>
     <Compile Include="MainForms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForms\FormPositions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForms\FormPositions.Designer.cs">
+      <DependentUpon>FormPositions.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForms\FormReport.cs">
       <SubType>Form</SubType>
@@ -262,6 +274,9 @@
     <EmbeddedResource Include="DialogForms\DFormDriver.resx">
       <DependentUpon>DFormDriver.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormPosition.resx">
+      <DependentUpon>DFormPosition.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormSupplier.resx">
       <DependentUpon>DFormSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForms\FormPositions.resx">
+      <DependentUpon>FormPositions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForms\FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
