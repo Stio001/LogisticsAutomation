@@ -20,5 +20,10 @@ namespace LogisticsAutomation
     
         public virtual Cargo Cargo { get; set; }
         public virtual Transportation Transportation { get; set; }
+
+        public override string ToString()
+        {
+            return Cargo.ToString();
+        }
     }
 }

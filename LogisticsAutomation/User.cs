@@ -19,5 +19,10 @@ namespace LogisticsAutomation
         public int PositionID { get; set; }
     
         public virtual Position Position { get; set; }
+
+        public override string ToString()
+        {
+            return String.Format($"[{ID}] {Name}");
+        }
     }
 }

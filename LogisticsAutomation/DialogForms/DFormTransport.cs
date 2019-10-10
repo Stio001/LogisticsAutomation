@@ -15,6 +15,8 @@ namespace LogisticsAutomation.DialogForms
         public DFormTransport()
         {
             InitializeComponent();
+
+            dtpDateEntry.Value = DateTime.Today;
         }
     }
 }

@@ -130,6 +130,12 @@
     <Compile Include="DialogForms\DFormTransport.Designer.cs">
       <DependentUpon>DFormTransport.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogForms\DFormTransportation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogForms\DFormTransportation.Designer.cs">
+      <DependentUpon>DFormTransportation.cs</DependentUpon>
+    </Compile>
     <Compile Include="DialogForms\DFormUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormTransport.resx">
       <DependentUpon>DFormTransport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogForms\DFormTransportation.resx">
+      <DependentUpon>DFormTransportation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DialogForms\DFormUser.resx">
       <DependentUpon>DFormUser.cs</DependentUpon>

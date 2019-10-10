@@ -35,7 +35,7 @@ namespace LogisticsAutomation
 
         public override string ToString()
         {
-            return Name;
+            return String.Format($"[{ID}] {Name}");
         }
     }
 }

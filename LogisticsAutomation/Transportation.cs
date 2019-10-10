@@ -43,7 +43,7 @@ namespace LogisticsAutomation
 
         public override string ToString()
         {
-            return String.Format($"{ID.ToString()} | {DateOrder.Value.ToShortDateString()}");
+            return String.Format($"[{ID}] {DateOrder.Value.ToShortDateString()}");
         }
     }
 }

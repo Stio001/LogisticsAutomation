@@ -127,7 +127,7 @@
             this.dtpDateEntry.Name = "dtpDateEntry";
             this.dtpDateEntry.Size = new System.Drawing.Size(239, 20);
             this.dtpDateEntry.TabIndex = 7;
-            this.dtpDateEntry.Value = new System.DateTime(2019, 9, 29, 18, 39, 52, 0);
+            this.dtpDateEntry.Value = new System.DateTime(2018, 1, 1, 0, 0, 0, 0);
             // 
             // btnOK
             // 
