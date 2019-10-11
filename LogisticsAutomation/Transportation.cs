@@ -17,7 +17,7 @@ namespace LogisticsAutomation
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Transportation()
         {
-            this.CargoTransportations = new HashSet<CargoTransportation>();
+            this.Cargoes = new HashSet<Cargo>();
         }
     
         public int ID { get; set; }
@@ -35,15 +35,10 @@ namespace LogisticsAutomation
         public Nullable<int> SpeedometerValueComing { get; set; }
         public Nullable<System.DateTime> DateArrival { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CargoTransportation> CargoTransportations { get; set; }
         public virtual Client Client { get; set; }
         public virtual Tariff Tariff { get; set; }
         public virtual Transport Transport { get; set; }
-
-        public override string ToString()
-        {
-            return String.Format($"[{ID}] {DateOrder.Value.ToShortDateString()}");
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Cargo> Cargoes { get; set; }
     }
 }

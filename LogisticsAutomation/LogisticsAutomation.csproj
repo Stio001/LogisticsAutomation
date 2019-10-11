@@ -67,9 +67,6 @@
     <Compile Include="Cargo.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
-    <Compile Include="CargoTransportation.cs">
-      <DependentUpon>Logistics.tt</DependentUpon>
-    </Compile>
     <Compile Include="CargoType.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
@@ -146,6 +143,21 @@
       <DependentUpon>Logistics.tt</DependentUpon>
     </Compile>
     <Compile Include="ImageExtension.cs" />
+    <Compile Include="Logistics.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logistics.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logistics.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logistics.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Logistics.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Logistics.edmx</DependentUpon>
+    </Compile>
     <Compile Include="MainForms\FormCargoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,21 +247,6 @@
     </Compile>
     <Compile Include="MainForms\FormUsers.Designer.cs">
       <DependentUpon>FormUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Logistics.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Logistics.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Logistics.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Logistics.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Logistics.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Logistics.edmx</DependentUpon>
     </Compile>
     <Compile Include="Position.cs">
       <DependentUpon>Logistics.tt</DependentUpon>
@@ -369,7 +366,6 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Brand.datasource" />
     <None Include="Properties\DataSources\Cargo.datasource" />
-    <None Include="Properties\DataSources\CargoTransportation.datasource" />
     <None Include="Properties\DataSources\CargoType.datasource" />
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\Driver.datasource" />
@@ -395,8 +391,8 @@
   <ItemGroup>
     <Content Include="Logistics.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Logistics.Context.cs</LastGenOutput>
       <DependentUpon>Logistics.edmx</DependentUpon>
+      <LastGenOutput>Logistics.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Logistics.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

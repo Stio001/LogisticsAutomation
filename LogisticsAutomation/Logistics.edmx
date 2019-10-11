@@ -29,9 +29,9 @@
         </EntityType>
         <EntityType Name="CargoTransportation">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="CargoID" />
+            <PropertyRef Name="TransportationID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CargoID" Type="int" Nullable="false" />
           <Property Name="TransportationID" Type="int" Nullable="false" />
         </EntityType>
@@ -354,17 +354,7 @@
           <Property Name="Weight" Type="Int32" />
           <NavigationProperty Name="CargoType" Relationship="Self.FK_Cargo_CargoType" FromRole="Cargo" ToRole="CargoType" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Cargo_Supplier" FromRole="Cargo" ToRole="Supplier" />
-          <NavigationProperty Name="CargoTransportations" Relationship="Self.FK_CargoTransportation_Cargo" FromRole="Cargo" ToRole="CargoTransportation" />
-        </EntityType>
-        <EntityType Name="CargoTransportation">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CargoID" Type="Int32" Nullable="false" />
-          <Property Name="TransportationID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cargo" Relationship="Self.FK_CargoTransportation_Cargo" FromRole="CargoTransportation" ToRole="Cargo" />
-          <NavigationProperty Name="Transportation" Relationship="Self.FK_CargoTransportation_Transportation" FromRole="CargoTransportation" ToRole="Transportation" />
+          <NavigationProperty Name="Transportations" Relationship="Self.CargoTransportation" FromRole="Cargo" ToRole="Transportation" />
         </EntityType>
         <EntityType Name="CargoType">
           <Key>
@@ -462,10 +452,10 @@
           <Property Name="SpeedometerValueDeparture" Type="Int32" />
           <Property Name="SpeedometerValueComing" Type="Int32" />
           <Property Name="DateArrival" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="CargoTransportations" Relationship="Self.FK_CargoTransportation_Transportation" FromRole="Transportation" ToRole="CargoTransportation" />
           <NavigationProperty Name="Client" Relationship="Self.FK_Transportation_Client" FromRole="Transportation" ToRole="Client" />
           <NavigationProperty Name="Tariff" Relationship="Self.FK_Transportation_Tariff" FromRole="Transportation" ToRole="Tariff" />
           <NavigationProperty Name="Transport" Relationship="Self.FK_Transportation_Transport" FromRole="Transportation" ToRole="Transport" />
+          <NavigationProperty Name="Cargoes" Relationship="Self.CargoTransportation" FromRole="Transportation" ToRole="Cargo" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -515,34 +505,6 @@
             </Principal>
             <Dependent Role="Cargo">
               <PropertyRef Name="SupplierID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CargoTransportation_Cargo">
-          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cargo">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CargoTransportation">
-              <PropertyRef Name="CargoID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CargoTransportation_Transportation">
-          <End Role="Transportation" Type="Self.Transportation" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="CargoTransportation" Type="Self.CargoTransportation" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Transportation">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CargoTransportation">
-              <PropertyRef Name="TransportationID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -616,10 +578,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="CargoTransportation">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="*" />
+          <End Role="Transportation" Type="Self.Transportation" Multiplicity="*" />
+        </Association>
         <EntityContainer Name="LogisticsDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Brands" EntityType="Self.Brand" />
           <EntitySet Name="Cargoes" EntityType="Self.Cargo" />
-          <EntitySet Name="CargoTransportations" EntityType="Self.CargoTransportation" />
           <EntitySet Name="CargoTypes" EntityType="Self.CargoType" />
           <EntitySet Name="Clients" EntityType="Self.Client" />
           <EntitySet Name="Drivers" EntityType="Self.Driver" />
@@ -641,14 +606,6 @@
             <End Role="Supplier" EntitySet="Suppliers" />
             <End Role="Cargo" EntitySet="Cargoes" />
           </AssociationSet>
-          <AssociationSet Name="FK_CargoTransportation_Cargo" Association="Self.FK_CargoTransportation_Cargo">
-            <End Role="Cargo" EntitySet="Cargoes" />
-            <End Role="CargoTransportation" EntitySet="CargoTransportations" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CargoTransportation_Transportation" Association="Self.FK_CargoTransportation_Transportation">
-            <End Role="Transportation" EntitySet="Transportations" />
-            <End Role="CargoTransportation" EntitySet="CargoTransportations" />
-          </AssociationSet>
           <AssociationSet Name="FK_Transportation_Client" Association="Self.FK_Transportation_Client">
             <End Role="Client" EntitySet="Clients" />
             <End Role="Transportation" EntitySet="Transportations" />
@@ -667,6 +624,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_Transportation_Transport" Association="Self.FK_Transportation_Transport">
             <End Role="Transport" EntitySet="Transports" />
+            <End Role="Transportation" EntitySet="Transportations" />
+          </AssociationSet>
+          <AssociationSet Name="CargoTransportation" Association="Self.CargoTransportation">
+            <End Role="Cargo" EntitySet="Cargoes" />
             <End Role="Transportation" EntitySet="Transportations" />
           </AssociationSet>
         </EntityContainer>
@@ -697,15 +658,6 @@
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
                 <ScalarProperty Name="UnitMeasurement" ColumnName="UnitMeasurement" />
                 <ScalarProperty Name="Weight" ColumnName="Weight" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CargoTransportations">
-            <EntityTypeMapping TypeName="LogisticsDBModel.CargoTransportation">
-              <MappingFragment StoreEntitySet="CargoTransportation">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CargoID" ColumnName="CargoID" />
-                <ScalarProperty Name="TransportationID" ColumnName="TransportationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -814,6 +766,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="CargoTransportation" TypeName="LogisticsDBModel.CargoTransportation" StoreEntitySet="CargoTransportation">
+            <EndProperty Name="Cargo">
+              <ScalarProperty Name="ID" ColumnName="CargoID" />
+            </EndProperty>
+            <EndProperty Name="Transportation">
+              <ScalarProperty Name="ID" ColumnName="TransportationID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

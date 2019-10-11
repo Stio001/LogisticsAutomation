@@ -27,7 +27,6 @@ namespace LogisticsAutomation
     
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Cargo> Cargoes { get; set; }
-        public virtual DbSet<CargoTransportation> CargoTransportations { get; set; }
         public virtual DbSet<CargoType> CargoTypes { get; set; }
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }

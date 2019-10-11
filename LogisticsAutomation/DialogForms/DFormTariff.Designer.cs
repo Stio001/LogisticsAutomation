@@ -184,6 +184,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "DFormTariff";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Тариф";
             ((System.ComponentModel.ISupportInitialize)(this.ntbPerHour)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntbPerKG)).EndInit();

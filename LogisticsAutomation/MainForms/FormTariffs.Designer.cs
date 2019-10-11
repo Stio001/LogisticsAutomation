@@ -258,6 +258,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormTariffs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Тарифы";
             this.gpFiltration.ResumeLayout(false);
             this.gpFiltration.PerformLayout();

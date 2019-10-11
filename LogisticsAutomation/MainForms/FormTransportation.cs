@@ -53,7 +53,8 @@ namespace LogisticsAutomation
 
                 Transportation transportation = db.Transportations.Find(id);
 
-                dgvCargoes.DataSource = transportation.CargoTransportations.ToList();
+                dgvCargoes.DataSource = transportation.Cargoes.ToList();
+                dgvCargoes.Refresh();
 
                 tbTransport.Text = transportation.Transport.StateNumber;
                 tbClient.Text = transportation.Client.Name;
@@ -67,6 +68,7 @@ namespace LogisticsAutomation
             else
             {
                 dgvCargoes.DataSource = null;
+                dgvCargoes.Refresh();
                 tbTransport.Text = "";
                 tbClient.Text = "";
                 tbTariff.Text = "";
