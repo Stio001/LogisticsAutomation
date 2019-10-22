@@ -18,6 +18,7 @@ namespace LogisticsAutomation.DialogForms
 
             dtpDateOrder.Value = DateTime.Today;
             dtpDateArrival.Value = DateTime.Now;
+            lbCargoes.SelectedIndex = -1;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

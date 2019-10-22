@@ -61,19 +61,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dgvCargoTransportation = new System.Windows.Forms.DataGridView();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dgvCargoes = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitMeasurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargoTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbCargoes = new System.Windows.Forms.ListBox();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
@@ -89,8 +77,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ntbFuelComing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntbFuelDeparture)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoTransportation)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -405,153 +391,27 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.dgvCargoTransportation);
-            this.groupBox3.Controls.Add(this.btnRemove);
-            this.groupBox3.Controls.Add(this.btnAdd);
-            this.groupBox3.Controls.Add(this.dgvCargoes);
+            this.groupBox3.Controls.Add(this.lbCargoes);
             this.groupBox3.Location = new System.Drawing.Point(12, 287);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(759, 263);
+            this.groupBox3.Size = new System.Drawing.Size(759, 259);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Грузы";
+            this.groupBox3.Text = "Грузы в перевозке";
             // 
-            // label15
+            // lbCargoes
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(494, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(107, 13);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Грузы в перевозке:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 13);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Доступные грузы:";
-            // 
-            // dgvCargoTransportation
-            // 
-            this.dgvCargoTransportation.AllowUserToAddRows = false;
-            this.dgvCargoTransportation.AllowUserToDeleteRows = false;
-            this.dgvCargoTransportation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCargoTransportation.Location = new System.Drawing.Point(497, 32);
-            this.dgvCargoTransportation.Name = "dgvCargoTransportation";
-            this.dgvCargoTransportation.ReadOnly = true;
-            this.dgvCargoTransportation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargoTransportation.Size = new System.Drawing.Size(256, 225);
-            this.dgvCargoTransportation.TabIndex = 3;
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRemove.Location = new System.Drawing.Point(456, 147);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(35, 110);
-            this.btnRemove.TabIndex = 2;
-            this.btnRemove.Text = "<<";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAdd.Location = new System.Drawing.Point(456, 32);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(35, 110);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = ">>";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // dgvCargoes
-            // 
-            this.dgvCargoes.AllowUserToAddRows = false;
-            this.dgvCargoes.AllowUserToDeleteRows = false;
-            this.dgvCargoes.AutoGenerateColumns = false;
-            this.dgvCargoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCargoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn,
-            this.nameDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.unitMeasurementDataGridViewTextBoxColumn,
-            this.weightDataGridViewTextBoxColumn,
-            this.cargoTypeDataGridViewTextBoxColumn,
-            this.supplierDataGridViewTextBoxColumn});
-            this.dgvCargoes.DataSource = this.cargoBindingSource;
-            this.dgvCargoes.Location = new System.Drawing.Point(9, 32);
-            this.dgvCargoes.Name = "dgvCargoes";
-            this.dgvCargoes.ReadOnly = true;
-            this.dgvCargoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargoes.Size = new System.Drawing.Size(441, 225);
-            this.dgvCargoes.TabIndex = 0;
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberDataGridViewTextBoxColumn.Width = 5;
-            // 
-            // unitMeasurementDataGridViewTextBoxColumn
-            // 
-            this.unitMeasurementDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
-            this.unitMeasurementDataGridViewTextBoxColumn.DataPropertyName = "UnitMeasurement";
-            this.unitMeasurementDataGridViewTextBoxColumn.HeaderText = "Ед. изм.";
-            this.unitMeasurementDataGridViewTextBoxColumn.Name = "unitMeasurementDataGridViewTextBoxColumn";
-            this.unitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
-            this.unitMeasurementDataGridViewTextBoxColumn.Width = 5;
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Вес";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // cargoTypeDataGridViewTextBoxColumn
-            // 
-            this.cargoTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.cargoTypeDataGridViewTextBoxColumn.DataPropertyName = "CargoType";
-            this.cargoTypeDataGridViewTextBoxColumn.HeaderText = "Тип";
-            this.cargoTypeDataGridViewTextBoxColumn.Name = "cargoTypeDataGridViewTextBoxColumn";
-            this.cargoTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.cargoTypeDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // supplierDataGridViewTextBoxColumn
-            // 
-            this.supplierDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.supplierDataGridViewTextBoxColumn.DataPropertyName = "Supplier";
-            this.supplierDataGridViewTextBoxColumn.HeaderText = "Поставщик";
-            this.supplierDataGridViewTextBoxColumn.Name = "supplierDataGridViewTextBoxColumn";
-            this.supplierDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lbCargoes.DataSource = this.cargoBindingSource;
+            this.lbCargoes.DisplayMember = "Name";
+            this.lbCargoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbCargoes.FormattingEnabled = true;
+            this.lbCargoes.ItemHeight = 16;
+            this.lbCargoes.Location = new System.Drawing.Point(6, 19);
+            this.lbCargoes.Name = "lbCargoes";
+            this.lbCargoes.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lbCargoes.Size = new System.Drawing.Size(747, 228);
+            this.lbCargoes.TabIndex = 0;
+            this.lbCargoes.ValueMember = "ID";
             // 
             // cargoBindingSource
             // 
@@ -560,7 +420,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(200, 556);
+            this.btnOK.Location = new System.Drawing.Point(234, 552);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(150, 23);
             this.btnOK.TabIndex = 3;
@@ -570,7 +430,7 @@
             // btnCancle
             // 
             this.btnCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancle.Location = new System.Drawing.Point(398, 557);
+            this.btnCancle.Location = new System.Drawing.Point(390, 552);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(150, 23);
             this.btnCancle.TabIndex = 4;
@@ -581,7 +441,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 600);
+            this.ClientSize = new System.Drawing.Size(783, 582);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox3);
@@ -604,9 +464,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ntbFuelComing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntbFuelDeparture)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoTransportation)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -630,21 +487,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button btnRemove;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancle;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitMeasurementDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cargoTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource cargoBindingSource;
         protected internal System.Windows.Forms.NumericUpDown ntbKilometrage;
         protected internal System.Windows.Forms.TextBox tbPlaceDelivery;
@@ -659,10 +505,9 @@
         protected internal System.Windows.Forms.NumericUpDown ntbSpeedometerDeparture;
         protected internal System.Windows.Forms.NumericUpDown ntbFuelComing;
         protected internal System.Windows.Forms.NumericUpDown ntbFuelDeparture;
-        protected internal System.Windows.Forms.DataGridView dgvCargoTransportation;
-        protected internal System.Windows.Forms.DataGridView dgvCargoes;
         private System.Windows.Forms.BindingSource tariffBindingSource;
         private System.Windows.Forms.BindingSource clientBindingSource;
         private System.Windows.Forms.BindingSource transportBindingSource;
+        protected internal System.Windows.Forms.ListBox lbCargoes;
     }
 }
