@@ -44,7 +44,10 @@ namespace LogisticsAutomation
                 Number = (int)dFormCargo.ntbNumber.Value,
                 UnitMeasurement = dFormCargo.tbUnitMeasurement.Text,
                 Weight = (int)dFormCargo.ntbWeight.Value,
-                Supplier = (Supplier)dFormCargo.cmbSupplier.SelectedItem
+                Supplier = (Supplier)dFormCargo.cmbSupplier.SelectedItem,
+                Lenght = (int)dFormCargo.ntbLenght.Value,
+                Width = (int)dFormCargo.ntbWidth.Value,
+                Height = (int)dFormCargo.ntbHeight.Value
             };
 
             db.Cargoes.Add(cargo);
@@ -100,6 +103,9 @@ namespace LogisticsAutomation
                 dFormCargo.tbUnitMeasurement.Text = cargo.UnitMeasurement;
                 dFormCargo.ntbWeight.Value = (decimal)cargo.Weight;
                 dFormCargo.cmbSupplier.SelectedItem = cargo.Supplier;
+                dFormCargo.ntbLenght.Value = (decimal)cargo.Lenght;
+                dFormCargo.ntbWidth.Value = (decimal)cargo.Width;
+                dFormCargo.ntbHeight.Value = (decimal)cargo.Height;
 
                 DialogResult dialogResult = dFormCargo.ShowDialog();
 
@@ -112,6 +118,9 @@ namespace LogisticsAutomation
                 cargo.UnitMeasurement = dFormCargo.tbUnitMeasurement.Text;
                 cargo.Weight = (int)dFormCargo.ntbWeight.Value;
                 cargo.Supplier = (Supplier)dFormCargo.cmbSupplier.SelectedItem;
+                cargo.Lenght = (int)dFormCargo.ntbLenght.Value;
+                cargo.Width = (int)dFormCargo.ntbWidth.Value;
+                cargo.Height = (int)dFormCargo.ntbHeight.Value;
 
                 db.SaveChanges();
                 dgvCargoes.Refresh();
@@ -139,12 +148,18 @@ namespace LogisticsAutomation
                 tbCTName.Text = cargo.CargoType.Name;
                 rtbCTDescription.Text = cargo.CargoType.Description;
                 pbCTPhoto.Image = ImageExtension.ByteArrayToImage(cargo.CargoType.Photo);
+                tbLenght.Text = cargo.Lenght.ToString();
+                tbWidth.Text = cargo.Width.ToString();
+                tbHeight.Text = cargo.Height.ToString();
             }
             else
             {
                 tbCTName.Text = "";
                 rtbCTDescription.Text = "";
                 pbCTPhoto.Image = null;
+                tbLenght.Text = "";
+                tbWidth.Text = "";
+                tbHeight.Text = "";
             }
         }
 

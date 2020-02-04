@@ -44,6 +44,12 @@
             this.supplierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpCargoInfo = new System.Windows.Forms.GroupBox();
+            this.tbHeight = new System.Windows.Forms.TextBox();
+            this.tbWidth = new System.Windows.Forms.TextBox();
+            this.tbLenght = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.rtbCTDescription = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pbCTPhoto = new System.Windows.Forms.PictureBox();
@@ -203,6 +209,12 @@
             // 
             // gpCargoInfo
             // 
+            this.gpCargoInfo.Controls.Add(this.tbHeight);
+            this.gpCargoInfo.Controls.Add(this.tbWidth);
+            this.gpCargoInfo.Controls.Add(this.tbLenght);
+            this.gpCargoInfo.Controls.Add(this.label6);
+            this.gpCargoInfo.Controls.Add(this.label5);
+            this.gpCargoInfo.Controls.Add(this.label4);
             this.gpCargoInfo.Controls.Add(this.rtbCTDescription);
             this.gpCargoInfo.Controls.Add(this.label3);
             this.gpCargoInfo.Controls.Add(this.pbCTPhoto);
@@ -210,24 +222,75 @@
             this.gpCargoInfo.Controls.Add(this.label2);
             this.gpCargoInfo.Location = new System.Drawing.Point(12, 354);
             this.gpCargoInfo.Name = "gpCargoInfo";
-            this.gpCargoInfo.Size = new System.Drawing.Size(304, 133);
+            this.gpCargoInfo.Size = new System.Drawing.Size(478, 133);
             this.gpCargoInfo.TabIndex = 2;
             this.gpCargoInfo.TabStop = false;
             this.gpCargoInfo.Text = "Информация и грузе";
             // 
+            // tbHeight
+            // 
+            this.tbHeight.Location = new System.Drawing.Point(72, 106);
+            this.tbHeight.Name = "tbHeight";
+            this.tbHeight.ReadOnly = true;
+            this.tbHeight.Size = new System.Drawing.Size(79, 20);
+            this.tbHeight.TabIndex = 10;
+            // 
+            // tbWidth
+            // 
+            this.tbWidth.Location = new System.Drawing.Point(72, 82);
+            this.tbWidth.Name = "tbWidth";
+            this.tbWidth.ReadOnly = true;
+            this.tbWidth.Size = new System.Drawing.Size(79, 20);
+            this.tbWidth.TabIndex = 9;
+            // 
+            // tbLenght
+            // 
+            this.tbLenght.Location = new System.Drawing.Point(72, 58);
+            this.tbLenght.Name = "tbLenght";
+            this.tbLenght.ReadOnly = true;
+            this.tbLenght.Size = new System.Drawing.Size(79, 20);
+            this.tbLenght.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 109);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Высота(см):";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 85);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(69, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Ширина(см):";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Длина(см):";
+            // 
             // rtbCTDescription
             // 
-            this.rtbCTDescription.Location = new System.Drawing.Point(9, 71);
+            this.rtbCTDescription.Location = new System.Drawing.Point(157, 32);
             this.rtbCTDescription.Name = "rtbCTDescription";
             this.rtbCTDescription.ReadOnly = true;
-            this.rtbCTDescription.Size = new System.Drawing.Size(142, 56);
+            this.rtbCTDescription.Size = new System.Drawing.Size(168, 95);
             this.rtbCTDescription.TabIndex = 4;
             this.rtbCTDescription.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 55);
+            this.label3.Location = new System.Drawing.Point(154, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 3;
@@ -235,7 +298,7 @@
             // 
             // pbCTPhoto
             // 
-            this.pbCTPhoto.Location = new System.Drawing.Point(157, 16);
+            this.pbCTPhoto.Location = new System.Drawing.Point(331, 19);
             this.pbCTPhoto.Name = "pbCTPhoto";
             this.pbCTPhoto.Size = new System.Drawing.Size(141, 111);
             this.pbCTPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -263,18 +326,18 @@
             // 
             this.gpAdditionally.Controls.Add(this.btnSuppliers);
             this.gpAdditionally.Controls.Add(this.btnCargoType);
-            this.gpAdditionally.Location = new System.Drawing.Point(319, 354);
+            this.gpAdditionally.Location = new System.Drawing.Point(496, 354);
             this.gpAdditionally.Name = "gpAdditionally";
-            this.gpAdditionally.Size = new System.Drawing.Size(304, 133);
+            this.gpAdditionally.Size = new System.Drawing.Size(127, 133);
             this.gpAdditionally.TabIndex = 3;
             this.gpAdditionally.TabStop = false;
             this.gpAdditionally.Text = "Дополнительно";
             // 
             // btnSuppliers
             // 
-            this.btnSuppliers.Location = new System.Drawing.Point(6, 78);
+            this.btnSuppliers.Location = new System.Drawing.Point(6, 79);
             this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.Size = new System.Drawing.Size(292, 43);
+            this.btnSuppliers.Size = new System.Drawing.Size(114, 43);
             this.btnSuppliers.TabIndex = 1;
             this.btnSuppliers.Text = "Поставщики";
             this.btnSuppliers.UseVisualStyleBackColor = true;
@@ -282,9 +345,9 @@
             // 
             // btnCargoType
             // 
-            this.btnCargoType.Location = new System.Drawing.Point(6, 23);
+            this.btnCargoType.Location = new System.Drawing.Point(6, 22);
             this.btnCargoType.Name = "btnCargoType";
-            this.btnCargoType.Size = new System.Drawing.Size(292, 43);
+            this.btnCargoType.Size = new System.Drawing.Size(114, 43);
             this.btnCargoType.TabIndex = 0;
             this.btnCargoType.Text = "Типы груза";
             this.btnCargoType.UseVisualStyleBackColor = true;
@@ -390,5 +453,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource cargoBindingSource;
+        private System.Windows.Forms.TextBox tbHeight;
+        private System.Windows.Forms.TextBox tbWidth;
+        private System.Windows.Forms.TextBox tbLenght;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

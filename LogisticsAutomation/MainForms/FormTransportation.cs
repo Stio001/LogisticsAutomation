@@ -56,13 +56,10 @@ namespace LogisticsAutomation
                 AdditionalData = dFormTransportation.rtbAdditionalData.Text,
             };
 
-            //var cargoes = new List<Cargo>();
             foreach (var cargo in dFormTransportation.lbCargoes.SelectedItems)
             {
                 transportation.Cargoes.Add((Cargo)cargo);
-                //cargoes.Add((Cargo)cargo);
             }
-            //transportation.Cargoes = cargoes;
 
             db.Transportations.Add(transportation);
             db.SaveChanges();
@@ -220,5 +217,38 @@ namespace LogisticsAutomation
             ntbSearchByID.Value = 0M;
             dgvTransportations.DataSource = db.Transportations.Local.ToBindingList();
         }
+
+        private void btnWaybill_Click(object sender, EventArgs e)
+        {
+            if (dgvTransportations.SelectedRows.Count > 0)
+            {
+                if (!SelectEmployeeQuestion(out User employee))
+                    return;
+                
+            }
+        }
+
+        private void makeContract_Click(object sender, EventArgs e)
+        {
+            if (dgvTransportations.SelectedRows.Count > 0)
+            {
+                if (!SelectEmployeeQuestion(out User employee))
+                    return;
+
+            }
+        }
+
+        private bool SelectEmployeeQuestion(out User selectedEmployee)
+        {
+            DFormEmployeeQuestion dFormEmployeeQuestion = new DFormEmployeeQuestion();
+            dFormEmployeeQuestion.cmbWorkers.DataSource = db.Users.ToList();
+            DialogResult dialogResult = dFormEmployeeQuestion.ShowDialog();
+            selectedEmployee = (User)dFormEmployeeQuestion.cmbWorkers.SelectedItem;
+
+            if (dialogResult == DialogResult.Cancel)
+                return false;
+
+            return true;
+        }     
     }
 }

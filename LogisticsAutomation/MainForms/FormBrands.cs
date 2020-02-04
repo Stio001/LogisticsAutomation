@@ -38,7 +38,10 @@ namespace LogisticsAutomation
             {
                 Name = dFormBrand.tbName.Text,
                 Carrying = (int)dFormBrand.ntbCarrying.Value,
-                Description = dFormBrand.rtbDescription.Text
+                Description = dFormBrand.rtbDescription.Text,
+                Lenght = (int)dFormBrand.ntbLenght.Value,
+                Width = (int)dFormBrand.ntbWidth.Value,
+                Height = (int)dFormBrand.ntbHeight.Value
             };
 
             db.Brands.Add(brand);
@@ -88,6 +91,9 @@ namespace LogisticsAutomation
                 dFormBrand.tbName.Text = brand.Name;
                 dFormBrand.ntbCarrying.Value = (decimal)brand.Carrying;
                 dFormBrand.rtbDescription.Text = brand.Description;
+                dFormBrand.ntbLenght.Value = (decimal)brand.Lenght;
+                dFormBrand.ntbWidth.Value = (decimal)brand.Width;
+                dFormBrand.ntbHeight.Value = (decimal)brand.Height;
 
                 DialogResult dialogResult = dFormBrand.ShowDialog();
 
@@ -97,6 +103,9 @@ namespace LogisticsAutomation
                 brand.Name = dFormBrand.tbName.Text;
                 brand.Carrying = (int)dFormBrand.ntbCarrying.Value;
                 brand.Description = dFormBrand.rtbDescription.Text;
+                brand.Lenght = (int)dFormBrand.ntbLenght.Value;
+                brand.Width = (int)dFormBrand.ntbWidth.Value;
+                brand.Height = (int)dFormBrand.ntbHeight.Value;
 
                 db.SaveChanges();
                 dgvBrands.Refresh();

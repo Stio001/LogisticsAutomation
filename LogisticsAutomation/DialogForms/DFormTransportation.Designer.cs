@@ -65,6 +65,10 @@
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
+            this.btCalculateCost = new System.Windows.Forms.Button();
+            this.tbCost = new System.Windows.Forms.TextBox();
+            this.btCheckingCapacity = new System.Windows.Forms.Button();
+            this.tbCheckingCapacity = new System.Windows.Forms.TextBox();
             this.gpMainData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tariffBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
@@ -107,6 +111,7 @@
             // 
             this.cmbTariff.DataSource = this.tariffBindingSource;
             this.cmbTariff.DisplayMember = "Name";
+            this.cmbTariff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTariff.FormattingEnabled = true;
             this.cmbTariff.Location = new System.Drawing.Point(122, 202);
             this.cmbTariff.Name = "cmbTariff";
@@ -122,6 +127,7 @@
             // 
             this.cmbClient.DataSource = this.clientBindingSource;
             this.cmbClient.DisplayMember = "Name";
+            this.cmbClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbClient.FormattingEnabled = true;
             this.cmbClient.Location = new System.Drawing.Point(122, 175);
             this.cmbClient.Name = "cmbClient";
@@ -137,6 +143,7 @@
             // 
             this.cmbTransport.DataSource = this.transportBindingSource;
             this.cmbTransport.DisplayMember = "StateNumber";
+            this.cmbTransport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTransport.FormattingEnabled = true;
             this.cmbTransport.Location = new System.Drawing.Point(122, 148);
             this.cmbTransport.Name = "cmbTransport";
@@ -420,7 +427,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(234, 552);
+            this.btnOK.Location = new System.Drawing.Point(224, 608);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(150, 23);
             this.btnOK.TabIndex = 3;
@@ -430,23 +437,66 @@
             // btnCancle
             // 
             this.btnCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancle.Location = new System.Drawing.Point(390, 552);
+            this.btnCancle.Location = new System.Drawing.Point(390, 608);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(150, 23);
             this.btnCancle.TabIndex = 4;
             this.btnCancle.Text = "Отмена";
             this.btnCancle.UseVisualStyleBackColor = true;
             // 
+            // btCalculateCost
+            // 
+            this.btCalculateCost.Location = new System.Drawing.Point(12, 557);
+            this.btCalculateCost.Name = "btCalculateCost";
+            this.btCalculateCost.Size = new System.Drawing.Size(196, 31);
+            this.btCalculateCost.TabIndex = 5;
+            this.btCalculateCost.Text = "Рассчитать стоимоть доставки";
+            this.btCalculateCost.UseVisualStyleBackColor = true;
+            this.btCalculateCost.Click += new System.EventHandler(this.btCalculateCost_Click);
+            // 
+            // tbCost
+            // 
+            this.tbCost.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbCost.Location = new System.Drawing.Point(214, 558);
+            this.tbCost.Name = "tbCost";
+            this.tbCost.ReadOnly = true;
+            this.tbCost.Size = new System.Drawing.Size(160, 29);
+            this.tbCost.TabIndex = 6;
+            // 
+            // btCheckingCapacity
+            // 
+            this.btCheckingCapacity.Location = new System.Drawing.Point(390, 557);
+            this.btCheckingCapacity.Name = "btCheckingCapacity";
+            this.btCheckingCapacity.Size = new System.Drawing.Size(196, 31);
+            this.btCheckingCapacity.TabIndex = 7;
+            this.btCheckingCapacity.Text = "Проверить вместимость";
+            this.btCheckingCapacity.UseVisualStyleBackColor = true;
+            this.btCheckingCapacity.Click += new System.EventHandler(this.btCheckingCapacity_Click);
+            // 
+            // tbCheckingCapacity
+            // 
+            this.tbCheckingCapacity.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbCheckingCapacity.Location = new System.Drawing.Point(592, 558);
+            this.tbCheckingCapacity.Name = "tbCheckingCapacity";
+            this.tbCheckingCapacity.ReadOnly = true;
+            this.tbCheckingCapacity.Size = new System.Drawing.Size(179, 29);
+            this.tbCheckingCapacity.TabIndex = 8;
+            // 
             // DFormTransportation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 582);
+            this.ClientSize = new System.Drawing.Size(783, 643);
+            this.Controls.Add(this.tbCheckingCapacity);
+            this.Controls.Add(this.btCheckingCapacity);
+            this.Controls.Add(this.tbCost);
+            this.Controls.Add(this.btCalculateCost);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gpAdditionally);
             this.Controls.Add(this.gpMainData);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DFormTransportation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Оформление перевозки";
@@ -466,6 +516,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -509,5 +560,9 @@
         private System.Windows.Forms.BindingSource clientBindingSource;
         private System.Windows.Forms.BindingSource transportBindingSource;
         protected internal System.Windows.Forms.ListBox lbCargoes;
+        private System.Windows.Forms.Button btCalculateCost;
+        private System.Windows.Forms.TextBox tbCost;
+        private System.Windows.Forms.Button btCheckingCapacity;
+        private System.Windows.Forms.TextBox tbCheckingCapacity;
     }
 }

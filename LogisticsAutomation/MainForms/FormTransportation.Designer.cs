@@ -59,16 +59,19 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvCargoes = new System.Windows.Forms.DataGridView();
             this.gpDocuments = new System.Windows.Forms.GroupBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.makeContract = new System.Windows.Forms.Button();
+            this.makeWaybill = new System.Windows.Forms.Button();
             this.gpFiltrations = new System.Windows.Forms.GroupBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.ntbSearchByID = new System.Windows.Forms.NumericUpDown();
-            this.dgvCargoes = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitMeasurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,11 +79,6 @@
             this.kilometrageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.travelTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transportationBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitMeasurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpTransportations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransportations)).BeginInit();
             this.gpOperations.SuspendLayout();
@@ -91,10 +89,10 @@
             this.gpDescription.SuspendLayout();
             this.gpAdditionally.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).BeginInit();
             this.gpDocuments.SuspendLayout();
             this.gpFiltrations.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntbSearchByID)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transportationBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -409,12 +407,30 @@
             this.tabPage2.Text = "Грузы";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dgvCargoes
+            // 
+            this.dgvCargoes.AllowUserToAddRows = false;
+            this.dgvCargoes.AllowUserToDeleteRows = false;
+            this.dgvCargoes.AutoGenerateColumns = false;
+            this.dgvCargoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCargoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iDDataGridViewTextBoxColumn2,
+            this.nameDataGridViewTextBoxColumn,
+            this.numberDataGridViewTextBoxColumn,
+            this.unitMeasurementDataGridViewTextBoxColumn,
+            this.weightDataGridViewTextBoxColumn});
+            this.dgvCargoes.DataSource = this.cargoBindingSource;
+            this.dgvCargoes.Location = new System.Drawing.Point(3, 6);
+            this.dgvCargoes.Name = "dgvCargoes";
+            this.dgvCargoes.ReadOnly = true;
+            this.dgvCargoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCargoes.Size = new System.Drawing.Size(471, 448);
+            this.dgvCargoes.TabIndex = 0;
+            // 
             // gpDocuments
             // 
-            this.gpDocuments.Controls.Add(this.button9);
-            this.gpDocuments.Controls.Add(this.button8);
-            this.gpDocuments.Controls.Add(this.button7);
-            this.gpDocuments.Controls.Add(this.button6);
+            this.gpDocuments.Controls.Add(this.makeContract);
+            this.gpDocuments.Controls.Add(this.makeWaybill);
             this.gpDocuments.Location = new System.Drawing.Point(12, 529);
             this.gpDocuments.Name = "gpDocuments";
             this.gpDocuments.Size = new System.Drawing.Size(1009, 52);
@@ -422,41 +438,25 @@
             this.gpDocuments.TabStop = false;
             this.gpDocuments.Text = "Документы";
             // 
-            // button9
+            // makeContract
             // 
-            this.button9.Location = new System.Drawing.Point(758, 19);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(245, 27);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = true;
+            this.makeContract.Location = new System.Drawing.Point(509, 19);
+            this.makeContract.Name = "makeContract";
+            this.makeContract.Size = new System.Drawing.Size(494, 27);
+            this.makeContract.TabIndex = 1;
+            this.makeContract.Text = "Составить договор";
+            this.makeContract.UseVisualStyleBackColor = true;
+            this.makeContract.Click += new System.EventHandler(this.makeContract_Click);
             // 
-            // button8
+            // makeWaybill
             // 
-            this.button8.Location = new System.Drawing.Point(508, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(245, 27);
-            this.button8.TabIndex = 2;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(257, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(245, 27);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(6, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(245, 27);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.makeWaybill.Location = new System.Drawing.Point(6, 19);
+            this.makeWaybill.Name = "makeWaybill";
+            this.makeWaybill.Size = new System.Drawing.Size(494, 27);
+            this.makeWaybill.TabIndex = 0;
+            this.makeWaybill.Text = "Составить путевой лист";
+            this.makeWaybill.UseVisualStyleBackColor = true;
+            this.makeWaybill.Click += new System.EventHandler(this.btnWaybill_Click);
             // 
             // gpFiltrations
             // 
@@ -502,25 +502,49 @@
             this.ntbSearchByID.Size = new System.Drawing.Size(251, 20);
             this.ntbSearchByID.TabIndex = 0;
             // 
-            // dgvCargoes
+            // iDDataGridViewTextBoxColumn2
             // 
-            this.dgvCargoes.AllowUserToAddRows = false;
-            this.dgvCargoes.AllowUserToDeleteRows = false;
-            this.dgvCargoes.AutoGenerateColumns = false;
-            this.dgvCargoes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCargoes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.iDDataGridViewTextBoxColumn2,
-            this.nameDataGridViewTextBoxColumn,
-            this.numberDataGridViewTextBoxColumn,
-            this.unitMeasurementDataGridViewTextBoxColumn,
-            this.weightDataGridViewTextBoxColumn});
-            this.dgvCargoes.DataSource = this.cargoBindingSource;
-            this.dgvCargoes.Location = new System.Drawing.Point(3, 6);
-            this.dgvCargoes.Name = "dgvCargoes";
-            this.dgvCargoes.ReadOnly = true;
-            this.dgvCargoes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCargoes.Size = new System.Drawing.Size(471, 448);
-            this.dgvCargoes.TabIndex = 0;
+            this.iDDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn2.HeaderText = "Код";
+            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
+            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn2.Width = 51;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numberDataGridViewTextBoxColumn
+            // 
+            this.numberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
+            this.numberDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
+            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
+            this.numberDataGridViewTextBoxColumn.Width = 91;
+            // 
+            // unitMeasurementDataGridViewTextBoxColumn
+            // 
+            this.unitMeasurementDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.unitMeasurementDataGridViewTextBoxColumn.DataPropertyName = "UnitMeasurement";
+            this.unitMeasurementDataGridViewTextBoxColumn.HeaderText = "Ед. изм.";
+            this.unitMeasurementDataGridViewTextBoxColumn.Name = "unitMeasurementDataGridViewTextBoxColumn";
+            this.unitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
+            this.unitMeasurementDataGridViewTextBoxColumn.Width = 74;
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Вес";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.weightDataGridViewTextBoxColumn.Width = 51;
             // 
             // cargoBindingSource
             // 
@@ -573,50 +597,6 @@
             // 
             this.transportationBindingSource.DataSource = typeof(LogisticsAutomation.Transportation);
             // 
-            // iDDataGridViewTextBoxColumn2
-            // 
-            this.iDDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.iDDataGridViewTextBoxColumn2.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn2.HeaderText = "Код";
-            this.iDDataGridViewTextBoxColumn2.Name = "iDDataGridViewTextBoxColumn2";
-            this.iDDataGridViewTextBoxColumn2.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn2.Width = 51;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numberDataGridViewTextBoxColumn
-            // 
-            this.numberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.numberDataGridViewTextBoxColumn.DataPropertyName = "Number";
-            this.numberDataGridViewTextBoxColumn.HeaderText = "Количество";
-            this.numberDataGridViewTextBoxColumn.Name = "numberDataGridViewTextBoxColumn";
-            this.numberDataGridViewTextBoxColumn.ReadOnly = true;
-            this.numberDataGridViewTextBoxColumn.Width = 91;
-            // 
-            // unitMeasurementDataGridViewTextBoxColumn
-            // 
-            this.unitMeasurementDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.unitMeasurementDataGridViewTextBoxColumn.DataPropertyName = "UnitMeasurement";
-            this.unitMeasurementDataGridViewTextBoxColumn.HeaderText = "Ед. изм.";
-            this.unitMeasurementDataGridViewTextBoxColumn.Name = "unitMeasurementDataGridViewTextBoxColumn";
-            this.unitMeasurementDataGridViewTextBoxColumn.ReadOnly = true;
-            this.unitMeasurementDataGridViewTextBoxColumn.Width = 74;
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Вес";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
-            this.weightDataGridViewTextBoxColumn.Width = 51;
-            // 
             // FormTransportation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -627,6 +607,7 @@
             this.Controls.Add(this.gpDocuments);
             this.Controls.Add(this.gpInfo);
             this.Controls.Add(this.gpTransportations);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FormTransportation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -643,10 +624,10 @@
             this.gpAdditionally.ResumeLayout(false);
             this.gpAdditionally.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).EndInit();
             this.gpDocuments.ResumeLayout(false);
             this.gpFiltrations.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ntbSearchByID)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCargoes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transportationBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -674,10 +655,8 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.RichTextBox rtbAdditionalData;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button makeContract;
+        private System.Windows.Forms.Button makeWaybill;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn placeDeliveryDataGridViewTextBoxColumn;

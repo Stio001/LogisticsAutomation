@@ -21,12 +21,12 @@ namespace LogisticsAutomation.DialogForms
             lbCargoes.SelectedIndex = -1;
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btCalculateCost_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void btCheckingCapacity_Click(object sender, EventArgs e)
         {
 
         }

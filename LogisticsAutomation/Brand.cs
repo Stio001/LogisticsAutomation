@@ -25,13 +25,16 @@ namespace LogisticsAutomation
         public Nullable<int> Carrying { get; set; }
         public Nullable<int> Capacity { get; set; }
         public string Description { get; set; }
+        public Nullable<int> Lenght { get; set; }
+        public Nullable<int> Width { get; set; }
+        public Nullable<int> Height { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Transport> Transports { get; set; }
 
         public override string ToString()
         {
-            return $"[{ID}] {Name}";
+            return Name;
         }
     }
 }

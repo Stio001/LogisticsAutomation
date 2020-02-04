@@ -45,10 +45,19 @@
             this.cargoTypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ntbLenght = new System.Windows.Forms.NumericUpDown();
+            this.ntbWidth = new System.Windows.Forms.NumericUpDown();
+            this.ntbHeight = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ntbNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ntbWeight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoTypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbLenght)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbWidth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbHeight)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -180,7 +189,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(9, 248);
+            this.btnOK.Location = new System.Drawing.Point(9, 365);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(107, 23);
             this.btnOK.TabIndex = 7;
@@ -190,18 +199,87 @@
             // btnCancle
             // 
             this.btnCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancle.Location = new System.Drawing.Point(120, 248);
+            this.btnCancle.Location = new System.Drawing.Point(120, 365);
             this.btnCancle.Name = "btnCancle";
             this.btnCancle.Size = new System.Drawing.Size(107, 23);
             this.btnCancle.TabIndex = 8;
             this.btnCancle.Text = "Отмена";
             this.btnCancle.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 245);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Длина(см):";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 284);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 13);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "Ширина(см):";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 323);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(68, 13);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Высота(см):";
+            // 
+            // ntbLenght
+            // 
+            this.ntbLenght.Location = new System.Drawing.Point(10, 261);
+            this.ntbLenght.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.ntbLenght.Name = "ntbLenght";
+            this.ntbLenght.Size = new System.Drawing.Size(218, 20);
+            this.ntbLenght.TabIndex = 17;
+            // 
+            // ntbWidth
+            // 
+            this.ntbWidth.Location = new System.Drawing.Point(10, 300);
+            this.ntbWidth.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.ntbWidth.Name = "ntbWidth";
+            this.ntbWidth.Size = new System.Drawing.Size(218, 20);
+            this.ntbWidth.TabIndex = 18;
+            // 
+            // ntbHeight
+            // 
+            this.ntbHeight.Location = new System.Drawing.Point(9, 339);
+            this.ntbHeight.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.ntbHeight.Name = "ntbHeight";
+            this.ntbHeight.Size = new System.Drawing.Size(218, 20);
+            this.ntbHeight.TabIndex = 19;
+            // 
             // DFormCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 282);
+            this.ClientSize = new System.Drawing.Size(239, 396);
+            this.Controls.Add(this.ntbHeight);
+            this.Controls.Add(this.ntbWidth);
+            this.Controls.Add(this.ntbLenght);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancle);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.cmbCargoType);
@@ -225,6 +303,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ntbWeight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cargoTypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbLenght)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ntbHeight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +329,11 @@
         protected internal System.Windows.Forms.NumericUpDown ntbWeight;
         protected internal System.Windows.Forms.ComboBox cmbSupplier;
         private System.Windows.Forms.BindingSource supplierBindingSource;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        protected internal System.Windows.Forms.NumericUpDown ntbLenght;
+        protected internal System.Windows.Forms.NumericUpDown ntbWidth;
+        protected internal System.Windows.Forms.NumericUpDown ntbHeight;
     }
 }

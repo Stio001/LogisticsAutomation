@@ -27,6 +27,9 @@ namespace LogisticsAutomation
         public int SupplierID { get; set; }
         public string UnitMeasurement { get; set; }
         public Nullable<int> Weight { get; set; }
+        public Nullable<int> Lenght { get; set; }
+        public Nullable<int> Width { get; set; }
+        public Nullable<int> Height { get; set; }
     
         public virtual CargoType CargoType { get; set; }
         public virtual Supplier Supplier { get; set; }
@@ -35,7 +38,7 @@ namespace LogisticsAutomation
 
         public override string ToString()
         {
-            return $"[{ID}] {Name}";
+            return String.Format($"[ID] {Name} ({Weight} кг.)");
         }
     }
 }

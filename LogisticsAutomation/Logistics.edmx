@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище LogisticsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище LogisticsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Brand">
           <Key>
             <PropertyRef Name="ID" />
@@ -14,6 +14,9 @@
           <Property Name="Carrying" Type="int" />
           <Property Name="Capacity" Type="int" />
           <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="Lenght" Type="int" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Height" Type="int" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -26,6 +29,9 @@
           <Property Name="SupplierID" Type="int" Nullable="false" />
           <Property Name="UnitMeasurement" Type="varchar" MaxLength="20" />
           <Property Name="Weight" Type="int" />
+          <Property Name="Lenght" Type="int" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Height" Type="int" />
         </EntityType>
         <EntityType Name="CargoTransportation">
           <Key>
@@ -325,8 +331,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LogisticsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -340,6 +345,9 @@
           <Property Name="Capacity" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Transports" Relationship="Self.FK_Transport_Brand" FromRole="Brand" ToRole="Transport" />
+          <Property Name="Lenght" Type="Int32" />
+          <Property Name="Width" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
         </EntityType>
         <EntityType Name="Cargo">
           <Key>
@@ -355,6 +363,9 @@
           <NavigationProperty Name="CargoType" Relationship="Self.FK_Cargo_CargoType" FromRole="Cargo" ToRole="CargoType" />
           <NavigationProperty Name="Supplier" Relationship="Self.FK_Cargo_Supplier" FromRole="Cargo" ToRole="Supplier" />
           <NavigationProperty Name="Transportations" Relationship="Self.CargoTransportation" FromRole="Cargo" ToRole="Transportation" />
+          <Property Name="Lenght" Type="Int32" />
+          <Property Name="Width" Type="Int32" />
+          <Property Name="Height" Type="Int32" />
         </EntityType>
         <EntityType Name="CargoType">
           <Key>
@@ -640,6 +651,9 @@
           <EntitySetMapping Name="Brands">
             <EntityTypeMapping TypeName="LogisticsDBModel.Brand">
               <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Carrying" ColumnName="Carrying" />
@@ -651,6 +665,9 @@
           <EntitySetMapping Name="Cargoes">
             <EntityTypeMapping TypeName="LogisticsDBModel.Cargo">
               <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CargoTypeID" ColumnName="CargoTypeID" />

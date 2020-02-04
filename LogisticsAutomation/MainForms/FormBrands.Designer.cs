@@ -42,10 +42,13 @@
             this.btnChange = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.carryingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.brandBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Lenght = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Width = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpFiltration.SuspendLayout();
             this.gpNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrands)).BeginInit();
@@ -122,7 +125,10 @@
             this.dgvBrands.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
             this.nameDataGridViewTextBoxColumn,
-            this.carryingDataGridViewTextBoxColumn});
+            this.carryingDataGridViewTextBoxColumn,
+            this.Lenght,
+            this.Width,
+            this.Height});
             this.dgvBrands.DataSource = this.brandBindingSource;
             this.dgvBrands.Location = new System.Drawing.Point(6, 19);
             this.dgvBrands.Name = "dgvBrands";
@@ -194,14 +200,18 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // brandBindingSource
+            // 
+            this.brandBindingSource.DataSource = typeof(LogisticsAutomation.Brand);
+            // 
             // iDDataGridViewTextBoxColumn
             // 
-            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
             this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 51;
+            this.iDDataGridViewTextBoxColumn.Width = 5;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -213,15 +223,39 @@
             // 
             // carryingDataGridViewTextBoxColumn
             // 
-            this.carryingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.carryingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
             this.carryingDataGridViewTextBoxColumn.DataPropertyName = "Carrying";
-            this.carryingDataGridViewTextBoxColumn.HeaderText = "Грузоподъемность";
+            this.carryingDataGridViewTextBoxColumn.HeaderText = "Грузоподъемность(кг)";
             this.carryingDataGridViewTextBoxColumn.Name = "carryingDataGridViewTextBoxColumn";
             this.carryingDataGridViewTextBoxColumn.ReadOnly = true;
+            this.carryingDataGridViewTextBoxColumn.Width = 5;
             // 
-            // brandBindingSource
+            // Lenght
             // 
-            this.brandBindingSource.DataSource = typeof(LogisticsAutomation.Brand);
+            this.Lenght.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Lenght.DataPropertyName = "Lenght";
+            this.Lenght.HeaderText = "Длина(см)";
+            this.Lenght.Name = "Lenght";
+            this.Lenght.ReadOnly = true;
+            this.Lenght.Width = 85;
+            // 
+            // Width
+            // 
+            this.Width.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Width.DataPropertyName = "Width";
+            this.Width.HeaderText = "Ширина(см)";
+            this.Width.Name = "Width";
+            this.Width.ReadOnly = true;
+            this.Width.Width = 91;
+            // 
+            // Height
+            // 
+            this.Height.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Height.DataPropertyName = "Height";
+            this.Height.HeaderText = "Высота(см)";
+            this.Height.Name = "Height";
+            this.Height.ReadOnly = true;
+            this.Height.Width = 90;
             // 
             // FormBrands
             // 
@@ -257,9 +291,6 @@
         private System.Windows.Forms.TextBox tbSearchByName;
         private System.Windows.Forms.GroupBox gpNavigation;
         private System.Windows.Forms.DataGridView dgvBrands;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn carryingDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource brandBindingSource;
         private System.Windows.Forms.GroupBox gpDescription;
         private System.Windows.Forms.RichTextBox rtbDescription;
@@ -267,5 +298,11 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn carryingDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lenght;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Width;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Height;
     }
 }

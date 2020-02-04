@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="af5465c5b45a451081f28af9f0ef7085" Name="Diagram1">
-        <EntityTypeShape EntityType="LogisticsDBModel.Brand" Width="1.5" PointX="0.75" PointY="14.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Cargo" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.CargoType" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Client" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Driver" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Position" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Brand" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Cargo" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.CargoType" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Client" Width="1.5" PointX="2.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Driver" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Position" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="LogisticsDBModel.Supplier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Tariff" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Transport" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.Transportation" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogisticsDBModel.User" Width="1.5" PointX="8" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Tariff" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Transport" Width="1.5" PointX="6.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.Transportation" Width="1.5" PointX="4.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogisticsDBModel.User" Width="1.5" PointX="7.25" PointY="6.125" IsExpanded="true" />
         <AssociationConnector Association="LogisticsDBModel.FK_Transport_Brand" ManuallyRouted="false" />
         <AssociationConnector Association="LogisticsDBModel.FK_Cargo_CargoType" ManuallyRouted="false" />
         <AssociationConnector Association="LogisticsDBModel.FK_Cargo_Supplier" ManuallyRouted="false" />
