@@ -427,9 +427,9 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(224, 608);
+            this.btnOK.Location = new System.Drawing.Point(539, 557);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(150, 23);
+            this.btnOK.Size = new System.Drawing.Size(232, 31);
             this.btnOK.TabIndex = 3;
             this.btnOK.Text = "ОК";
             this.btnOK.UseVisualStyleBackColor = true;
@@ -437,9 +437,9 @@
             // btnCancle
             // 
             this.btnCancle.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancle.Location = new System.Drawing.Point(390, 608);
+            this.btnCancle.Location = new System.Drawing.Point(539, 594);
             this.btnCancle.Name = "btnCancle";
-            this.btnCancle.Size = new System.Drawing.Size(150, 23);
+            this.btnCancle.Size = new System.Drawing.Size(232, 29);
             this.btnCancle.TabIndex = 4;
             this.btnCancle.Text = "Отмена";
             this.btnCancle.UseVisualStyleBackColor = true;
@@ -457,17 +457,17 @@
             // tbCost
             // 
             this.tbCost.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbCost.Location = new System.Drawing.Point(214, 558);
+            this.tbCost.Location = new System.Drawing.Point(12, 594);
             this.tbCost.Name = "tbCost";
             this.tbCost.ReadOnly = true;
-            this.tbCost.Size = new System.Drawing.Size(160, 29);
+            this.tbCost.Size = new System.Drawing.Size(196, 29);
             this.tbCost.TabIndex = 6;
             // 
             // btCheckingCapacity
             // 
-            this.btCheckingCapacity.Location = new System.Drawing.Point(390, 557);
+            this.btCheckingCapacity.Location = new System.Drawing.Point(214, 557);
             this.btCheckingCapacity.Name = "btCheckingCapacity";
-            this.btCheckingCapacity.Size = new System.Drawing.Size(196, 31);
+            this.btCheckingCapacity.Size = new System.Drawing.Size(319, 31);
             this.btCheckingCapacity.TabIndex = 7;
             this.btCheckingCapacity.Text = "Проверить вместимость";
             this.btCheckingCapacity.UseVisualStyleBackColor = true;
@@ -476,17 +476,17 @@
             // tbCheckingCapacity
             // 
             this.tbCheckingCapacity.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tbCheckingCapacity.Location = new System.Drawing.Point(592, 558);
+            this.tbCheckingCapacity.Location = new System.Drawing.Point(214, 594);
             this.tbCheckingCapacity.Name = "tbCheckingCapacity";
             this.tbCheckingCapacity.ReadOnly = true;
-            this.tbCheckingCapacity.Size = new System.Drawing.Size(179, 29);
+            this.tbCheckingCapacity.Size = new System.Drawing.Size(319, 29);
             this.tbCheckingCapacity.TabIndex = 8;
             // 
             // DFormTransportation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 643);
+            this.ClientSize = new System.Drawing.Size(783, 634);
             this.Controls.Add(this.tbCheckingCapacity);
             this.Controls.Add(this.btCheckingCapacity);
             this.Controls.Add(this.tbCost);
