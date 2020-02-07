@@ -36,11 +36,6 @@
             this.tbSearchByName = new System.Windows.Forms.TextBox();
             this.gpNavigation = new System.Windows.Forms.GroupBox();
             this.dgvTariffs = new System.Windows.Forms.DataGridView();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perHourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.perKGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tariffBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gpDescription = new System.Windows.Forms.GroupBox();
             this.rtbDescription = new System.Windows.Forms.RichTextBox();
@@ -48,6 +43,11 @@
             this.btnChange = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perKMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perHourDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.perKGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpFiltration.SuspendLayout();
             this.gpNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTariffs)).BeginInit();
@@ -137,50 +137,6 @@
             this.dgvTariffs.SelectionChanged += new System.EventHandler(this.LoadDescription);
             this.dgvTariffs.DoubleClick += new System.EventHandler(this.btnChange_Click);
             // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.iDDataGridViewTextBoxColumn.Width = 51;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // perKMDataGridViewTextBoxColumn
-            // 
-            this.perKMDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.perKMDataGridViewTextBoxColumn.DataPropertyName = "PerKM";
-            this.perKMDataGridViewTextBoxColumn.HeaderText = "За КМ";
-            this.perKMDataGridViewTextBoxColumn.Name = "perKMDataGridViewTextBoxColumn";
-            this.perKMDataGridViewTextBoxColumn.ReadOnly = true;
-            this.perKMDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // perHourDataGridViewTextBoxColumn
-            // 
-            this.perHourDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.perHourDataGridViewTextBoxColumn.DataPropertyName = "PerHour";
-            this.perHourDataGridViewTextBoxColumn.HeaderText = "За час";
-            this.perHourDataGridViewTextBoxColumn.Name = "perHourDataGridViewTextBoxColumn";
-            this.perHourDataGridViewTextBoxColumn.ReadOnly = true;
-            this.perHourDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // perKGDataGridViewTextBoxColumn
-            // 
-            this.perKGDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.perKGDataGridViewTextBoxColumn.DataPropertyName = "PerKG";
-            this.perKGDataGridViewTextBoxColumn.HeaderText = "За КГ";
-            this.perKGDataGridViewTextBoxColumn.Name = "perKGDataGridViewTextBoxColumn";
-            this.perKGDataGridViewTextBoxColumn.ReadOnly = true;
-            this.perKGDataGridViewTextBoxColumn.Width = 61;
-            // 
             // tariffBindingSource
             // 
             this.tariffBindingSource.DataSource = typeof(LogisticsAutomation.Tariff);
@@ -246,6 +202,50 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "Код";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iDDataGridViewTextBoxColumn.Width = 51;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // perKMDataGridViewTextBoxColumn
+            // 
+            this.perKMDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.perKMDataGridViewTextBoxColumn.DataPropertyName = "PerKM";
+            this.perKMDataGridViewTextBoxColumn.HeaderText = "За КМ";
+            this.perKMDataGridViewTextBoxColumn.Name = "perKMDataGridViewTextBoxColumn";
+            this.perKMDataGridViewTextBoxColumn.ReadOnly = true;
+            this.perKMDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // perHourDataGridViewTextBoxColumn
+            // 
+            this.perHourDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.perHourDataGridViewTextBoxColumn.DataPropertyName = "PerHour";
+            this.perHourDataGridViewTextBoxColumn.HeaderText = "За минуту";
+            this.perHourDataGridViewTextBoxColumn.Name = "perHourDataGridViewTextBoxColumn";
+            this.perHourDataGridViewTextBoxColumn.ReadOnly = true;
+            this.perHourDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // perKGDataGridViewTextBoxColumn
+            // 
+            this.perKGDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.perKGDataGridViewTextBoxColumn.DataPropertyName = "PerKG";
+            this.perKGDataGridViewTextBoxColumn.HeaderText = "За КГ";
+            this.perKGDataGridViewTextBoxColumn.Name = "perKGDataGridViewTextBoxColumn";
+            this.perKGDataGridViewTextBoxColumn.ReadOnly = true;
+            this.perKGDataGridViewTextBoxColumn.Width = 61;
+            // 
             // FormTariffs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -280,11 +280,6 @@
         private System.Windows.Forms.TextBox tbSearchByName;
         private System.Windows.Forms.GroupBox gpNavigation;
         private System.Windows.Forms.DataGridView dgvTariffs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perKMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perHourDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn perKGDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource tariffBindingSource;
         private System.Windows.Forms.GroupBox gpDescription;
         private System.Windows.Forms.RichTextBox rtbDescription;
@@ -292,5 +287,10 @@
         private System.Windows.Forms.Button btnChange;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perKMDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perHourDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn perKGDataGridViewTextBoxColumn;
     }
 }

@@ -1,14 +1,11 @@
 ﻿using LogisticsAutomation.DialogForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Office.Interop;
+using Microsoft.Office.Interop.Excel;
 
 namespace LogisticsAutomation
 {
@@ -224,7 +221,60 @@ namespace LogisticsAutomation
             {
                 if (!SelectEmployeeQuestion(out User employee))
                     return;
-                
+
+                int selectedIndex = dgvTransportations.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = int.TryParse(dgvTransportations[0, selectedIndex].Value.ToString(), out id);
+
+                if (!converted)
+                    return;
+
+                Transportation transportation = db.Transportations.Find(id);
+
+                Microsoft.Office.Interop.Excel.Application xcl;
+                _Workbook oWB;
+                _Worksheet oSheet;
+
+                try
+                {
+                    xcl = new Microsoft.Office.Interop.Excel.Application();
+                    oWB = xcl.Workbooks.Open(@"C:\Users\User\source\repos\Stio001\LogisticsAutomation\LogisticsAutomation\Шаблоны\Путевой лист.xls");
+                    oSheet = oWB.ActiveSheet;
+
+                    oSheet.Cells[6, 4] = transportation.Transport.Driver.Name; //ФИО водителя
+                    oSheet.Cells[7, 4] = transportation.Transport.Driver.DrivingCategory;
+                    oSheet.Cells[10, 4] = transportation.Transport.Driver.Phone;
+                    oSheet.Cells[11, 4] = transportation.Transport.Brand.Name;
+                    oSheet.Cells[12, 4] = transportation.Client.Name;
+                    oSheet.Cells[13, 4] = transportation.PlaceDelivery;
+                    oSheet.Cells[14, 4] = transportation.FuelQuantityComing;
+                    oSheet.Cells[15, 4] = transportation.SpeedometerValueComing + " л.";
+                    oSheet.Cells[6, 6] = transportation.DateArrival;
+                    oSheet.Cells[7, 6] = transportation.TravelTime + " мин.";
+                    oSheet.Cells[28, 4] = employee.Name;
+
+                    Range line = (Range)oSheet.Rows[22];
+                    for (int quantityCargo = 0; quantityCargo < transportation.Cargoes.Count - 2; quantityCargo++)
+                    {
+                        line.Insert(Type.Missing, line);
+                    }
+
+                    var cargoes = transportation.Cargoes.ToList();
+                    for (int numberCargo = 0; numberCargo < cargoes.Count; numberCargo++)
+                    {
+                        oSheet.Cells[21 + numberCargo, 3] = numberCargo + 1;
+                        oSheet.Cells[21 + numberCargo, 4] = cargoes[numberCargo].Name;
+                        oSheet.Cells[21 + numberCargo, 5] = cargoes[numberCargo].CargoType.Name;
+                        oSheet.Cells[21 + numberCargo, 6] = cargoes[numberCargo].Supplier.Name;
+                    }
+
+                    oWB.SaveAs($@"C:\Users\User\source\repos\Stio001\LogisticsAutomation\LogisticsAutomation\Документы\Путевой лист №{transportation.ID}.xls");
+                    xcl.Quit();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -235,6 +285,67 @@ namespace LogisticsAutomation
                 if (!SelectEmployeeQuestion(out User employee))
                     return;
 
+                int selectedIndex = dgvTransportations.SelectedRows[0].Index;
+                int id = 0;
+                bool converted = int.TryParse(dgvTransportations[0, selectedIndex].Value.ToString(), out id);
+
+                if (!converted)
+                    return;
+
+                Transportation transportation = db.Transportations.Find(id);
+
+                Microsoft.Office.Interop.Excel.Application xcl;
+                _Workbook oWB;
+                _Worksheet oSheet;
+
+                try
+                {
+                    xcl = new Microsoft.Office.Interop.Excel.Application();
+                    oWB = xcl.Workbooks.Open(@"C:\Users\User\source\repos\Stio001\LogisticsAutomation\LogisticsAutomation\Шаблоны\Договор.xls");
+                    oSheet = oWB.ActiveSheet;
+
+                    oSheet.Cells[7, 4] = transportation.Tariff.Name;
+                    oSheet.Cells[11, 4] = String.Format($"{transportation.Tariff.PerKM}.00 руб. за км.");
+                    oSheet.Cells[12, 4] = String.Format($"{transportation.Tariff.PerHour}.00 руб. за мин.");
+                    oSheet.Cells[13, 4] = String.Format($"{transportation.Tariff.PerKG}.00 руб. за кг.");
+                    oSheet.Cells[11, 5] = transportation.Tariff.PerKM * (transportation.SpeedometerValueComing - transportation.SpeedometerValueDeparture) + ".00 руб.";
+                    oSheet.Cells[12, 5] = transportation.Tariff.PerHour * transportation.TravelTime + ".00 руб.";
+                    oSheet.Cells[13, 5] = transportation.Tariff.PerKG * transportation.Cargoes.Sum(c => c.Weight) + ".00 руб.";
+                    oSheet.Cells[10, 8] = transportation.Transport.StateNumber;
+                    oSheet.Cells[11, 8] = transportation.Transport.Driver.Name;
+                    oSheet.Cells[24, 4] = transportation.PlaceDelivery;
+                    oSheet.Cells[23, 8] = String.Format($"{transportation.Tariff.PerKG * transportation.Cargoes.Sum(c => c.Weight)}.00 руб");
+                    int cost = (int)(transportation.Tariff.PerHour * transportation.TravelTime)
+                        + (int)(transportation.Tariff.PerKM * (transportation.SpeedometerValueComing - transportation.SpeedometerValueDeparture))
+                        + (int)(transportation.Tariff.PerKG * transportation.Cargoes.Sum(c => c.Weight));
+                    oSheet.Cells[24, 8] = String.Format($"{cost}.00 руб.");
+                    oSheet.Cells[28, 4] = transportation.Client.ContactPerson;
+                    oSheet.Cells[28, 7] = employee.Name;
+
+                    Range line = (Range)oSheet.Rows[22];
+                    for (int quantityCargo = 0; quantityCargo < transportation.Cargoes.Count - 2; quantityCargo++)
+                    {
+                        line.Insert(XlInsertShiftDirection.xlShiftDown, true);
+                    }
+
+                    var cargoes = transportation.Cargoes.ToList();
+                    for (int numberCargo = 0; numberCargo < cargoes.Count; numberCargo++)
+                    {
+                        oSheet.Cells[21 + numberCargo, 3] = numberCargo + 1;
+                        oSheet.Cells[21 + numberCargo, 4] = cargoes[numberCargo].Name;
+                        oSheet.Cells[21 + numberCargo, 5] = cargoes[numberCargo].CargoType.Name;
+                        oSheet.Cells[21 + numberCargo, 6] = cargoes[numberCargo].Supplier.Name;
+                        oSheet.Cells[21 + numberCargo, 7] = cargoes[numberCargo].Weight;
+                        oSheet.Cells[21 + numberCargo, 8] = cargoes[numberCargo].Weight * transportation.Tariff.PerKG + ".00 руб.";
+                    }
+
+                    oWB.SaveAs($@"C:\Users\User\source\repos\Stio001\LogisticsAutomation\LogisticsAutomation\Документы\Договор №{transportation.ID}.xls");
+                    xcl.Quit();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

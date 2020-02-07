@@ -34,12 +34,10 @@
             this.оформитьДоговорToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.путевойЛистToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиИДиаграммыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.программаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.пользователиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.резервнаяКопияБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxMain = new System.Windows.Forms.PictureBox();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnCargoType = new System.Windows.Forms.Button();
@@ -58,8 +56,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.менюToolStripMenuItem,
             this.отчетToolStripMenuItem,
-            this.программаToolStripMenuItem,
-            this.резервнаяКопияБДToolStripMenuItem});
+            this.программаToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(405, 24);
@@ -92,18 +89,10 @@
             // отчетToolStripMenuItem
             // 
             this.отчетToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.путевойЛистToolStripMenuItem,
             this.графикиИДиаграммыToolStripMenuItem});
             this.отчетToolStripMenuItem.Name = "отчетToolStripMenuItem";
             this.отчетToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.отчетToolStripMenuItem.Text = "Отчет";
-            // 
-            // путевойЛистToolStripMenuItem
-            // 
-            this.путевойЛистToolStripMenuItem.Name = "путевойЛистToolStripMenuItem";
-            this.путевойЛистToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.путевойЛистToolStripMenuItem.Text = "Путевой лист";
-            this.путевойЛистToolStripMenuItem.Click += new System.EventHandler(this.frmReportOpen);
             // 
             // графикиИДиаграммыToolStripMenuItem
             // 
@@ -134,13 +123,6 @@
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
             this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.frmAboutOpen);
-            // 
-            // резервнаяКопияБДToolStripMenuItem
-            // 
-            this.резервнаяКопияБДToolStripMenuItem.Name = "резервнаяКопияБДToolStripMenuItem";
-            this.резервнаяКопияБДToolStripMenuItem.Size = new System.Drawing.Size(129, 20);
-            this.резервнаяКопияБДToolStripMenuItem.Text = "Резервная копия БД";
-            this.резервнаяКопияБДToolStripMenuItem.Click += new System.EventHandler(this.РезервнаяКопияБДToolStripMenuItem_Click);
             // 
             // pictureBoxMain
             // 
@@ -296,12 +278,10 @@
         private System.Windows.Forms.ToolStripMenuItem оформитьДоговорToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem путевойЛистToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem графикиИДиаграммыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem программаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem пользователиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem резервнаяКопияБДToolStripMenuItem;
         private System.Windows.Forms.Button btnDelivery;
         private System.Windows.Forms.Button btnDrivers;
         private System.Windows.Forms.Button btnTransport;

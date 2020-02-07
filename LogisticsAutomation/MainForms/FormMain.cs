@@ -23,12 +23,6 @@ namespace LogisticsAutomation
             formAbout.ShowDialog();
         }
 
-        private void frmBrandsOpen(object sender, EventArgs e)
-        {
-            FormBrands formBrands = new FormBrands();
-            formBrands.ShowDialog();
-        }
-
         private void frmCargosOpen(object sender, EventArgs e)
         {
             FormCargoes formCargos = new FormCargoes();
@@ -51,12 +45,6 @@ namespace LogisticsAutomation
         {
             FormDrivers formDrivers = new FormDrivers();
             formDrivers.ShowDialog();
-        }
-
-        private void frmReportOpen(object sender, EventArgs e)
-        {
-            FormReport formReport = new FormReport();
-            formReport.ShowDialog();
         }
 
         private void frmStatOpen(object sender, EventArgs e)
@@ -95,22 +83,12 @@ namespace LogisticsAutomation
             formUsers.ShowDialog();
         }
 
-        private void РезервнаяКопияБДToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ЗакрытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -26,7 +26,7 @@ namespace LogisticsAutomation.DialogForms
             if (lbCargoes.SelectedItems.Count > 0)
             {
                 Tariff selectedTariff = (Tariff)cmbTariff.SelectedItem;
-                int cost = (int)((double)selectedTariff.PerHour / 60 * (double)ntbTravelTime.Value) 
+                int cost = (int)(selectedTariff.PerHour * (int)ntbTravelTime.Value)
                          + (int)(selectedTariff.PerKM * (int)(ntbSpeedometerComing.Value - ntbSpeedometerDeparture.Value));
 
                 foreach (var objCargo in lbCargoes.SelectedItems)
